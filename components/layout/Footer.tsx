@@ -30,7 +30,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Company Info */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6">
             <a
               href="#home"
               onClick={(e) => handleScrollTo(e, "#home")}
@@ -88,11 +88,11 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="font-heading text-sm font-bold uppercase tracking-wider text-white mb-6">
               Navigation
             </h4>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col items-center md:items-start gap-3">
               {[
                 { label: "Home", href: "#home" },
                 { label: "Our Services", href: "#services" },
@@ -116,11 +116,11 @@ export default function Footer() {
           </div>
 
           {/* Electronic Repair Services */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h4 className="font-heading text-sm font-bold uppercase tracking-wider text-white mb-6">
               Specialist Services
             </h4>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col items-center md:items-start gap-3">
               {[
                 "Clock Spring Repairs",
                 "ABS Module Recoding",
@@ -144,8 +144,8 @@ export default function Footer() {
           </div>
 
           {/* Newsletter / Contact Details */}
-          <div className="flex flex-col gap-6">
-            <div>
+          <div className="flex flex-col items-center md:items-start text-center md:text-left gap-6">
+            <div className="flex flex-col items-center md:items-start">
               <h4 className="font-heading text-sm font-bold uppercase tracking-wider text-white mb-4">
                 Newsletter
               </h4>
@@ -167,7 +167,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2.5 pt-2 border-t border-white/5">
+            <div className="flex flex-col items-center md:items-start gap-2.5 pt-2 border-t border-white/5 w-full">
               <a
                 href="https://maps.google.com/?q=Unit+3+Industrial+Estate,+Sycamore+Road+Handsworth+Birmingham,+B21+0QW"
                 target="_blank"
@@ -197,12 +197,14 @@ export default function Footer() {
 
         {/* Footer Bottom */}
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-body text-xs text-muted-text">
+          <p className="font-body text-xs text-muted-text text-center sm:text-left">
             &copy; {new Date().getFullYear()} KG Auto Electronics BRUM Ltd. All rights reserved. Registered in England & Wales.
           </p>
-          <div className="flex items-center gap-6 text-xs text-muted-text">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-xs text-muted-text">
+            <div className="flex items-center gap-6">
+              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            </div>
             <div className="flex items-center gap-1.5 text-primary-red font-semibold">
               <Award className="w-4 h-4" />
               <span>OEM Quality Guarantee</span>

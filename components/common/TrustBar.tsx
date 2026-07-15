@@ -23,8 +23,8 @@ export default function TrustBar() {
       <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-[#141414] to-transparent z-10 pointer-events-none" />
       <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-[#141414] to-transparent z-10 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 mb-3 flex items-center justify-between">
-        <span className="font-heading text-[10px] font-bold text-muted-text uppercase tracking-widest">
+      <div className="max-w-7xl mx-auto px-6 mb-3 flex items-center justify-center lg:justify-between">
+        <span className="font-heading text-[10px] font-bold text-muted-text uppercase tracking-widest text-center lg:text-left">
           Prestige Brands We Engineer & Recode
         </span>
       </div>

@@ -65,7 +65,7 @@ export default function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="lg:col-span-7 flex flex-col items-start text-left"
+          className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
         >
           {/* Accent Badge */}
           <motion.div
@@ -93,7 +93,7 @@ export default function Hero() {
           {/* Supporting Paragraph */}
           <motion.p
             variants={itemVariants}
-            className="font-body text-base sm:text-lg text-muted-text max-w-xl leading-relaxed mb-8"
+            className="font-body text-base sm:text-lg text-muted-text max-w-xl leading-relaxed mb-8 mx-auto lg:mx-0"
           >
             Say goodbye to costly dealership replacements. We deliver engineering-grade diagnostics and repairs for complex dashboard, steering column, ABS, and lighting systems with lifetime guarantees.
           </motion.p>
@@ -101,7 +101,7 @@ export default function Hero() {
           {/* Call to Actions */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-12"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-4 w-full sm:w-auto mb-12"
           >
             <Button
               variant="primary"

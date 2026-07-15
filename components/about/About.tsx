@@ -79,7 +79,7 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-7 flex flex-col items-start"
+            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left"
           >
             <motion.h3
               variants={itemVariants}
@@ -90,14 +90,14 @@ export default function About() {
 
             <motion.p
               variants={itemVariants}
-              className="font-body text-sm md:text-base text-muted-text leading-relaxed mb-6"
+              className="font-body text-sm md:text-base text-muted-text leading-relaxed mb-6 mx-auto lg:mx-0"
             >
               For years, automobile dealerships have relied on a wasteful protocol: replacing complete, expensive assemblies when only a single internal sensor or contact has failed. At KG Auto Electronics, we take a different approach. We pinpoint the exact micro-controller, slip ring ribbon, or capacitor causing the malfunction, repairing the original unit at a fraction of the cost.
             </motion.p>
 
             <motion.p
               variants={itemVariants}
-              className="font-body text-sm md:text-base text-muted-text leading-relaxed mb-8"
+              className="font-body text-sm md:text-base text-muted-text leading-relaxed mb-8 mx-auto lg:mx-0"
             >
               What started as a specialist squib slip ring workshop has evolved into Birmingham's premier electronic diagnostics lab. Today, under the direction of <strong>Ahmad Raza</strong> and engineering lead <strong>Umer Shahid</strong>, we successfully rebuild intelligent steering modules, ABS processors, and custom LED lighting circuits for Mercedes, BMW, Audi, VW, and Porsche.
             </motion.p>
@@ -107,7 +107,7 @@ export default function About() {
               {achievements.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="flex flex-col gap-2 p-4 bg-[#090909]/60 border border-white/5 rounded-xl">
+                  <div key={idx} className="flex flex-col items-center sm:items-start text-center sm:text-left gap-2 p-4 bg-[#090909]/60 border border-white/5 rounded-xl">
                     <Icon className="w-5 h-5 text-primary-red" />
                     <h5 className="font-heading text-xs font-bold text-white uppercase tracking-wider">
                       {item.title}

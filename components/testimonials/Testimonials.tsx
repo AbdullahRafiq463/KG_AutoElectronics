@@ -60,7 +60,7 @@ export default function Testimonials() {
           />
 
           {/* Carousel Buttons */}
-          <div className="flex items-center gap-3 mt-6 md:mt-0">
+          <div className="flex items-center justify-center md:justify-start gap-3 mt-6 md:mt-0">
             <button
               onClick={scrollPrev}
               className="w-12 h-12 flex items-center justify-center rounded-full bg-surface border border-white/5 hover:border-primary-red hover:text-primary-red text-white transition-all cursor-pointer"

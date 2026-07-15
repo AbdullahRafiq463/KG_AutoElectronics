@@ -21,9 +21,9 @@ export function Heading({ className, badge, title, subtitle, align = "center", .
   };
 
   const alignStyles = {
-    left: "text-left items-start",
+    left: "text-center items-center md:text-left md:items-start",
     center: "text-center items-center",
-    right: "text-right items-end",
+    right: "text-center items-center md:text-right md:items-end",
   };
 
   return (

@@ -91,7 +91,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="relative py-24 bg-[#090909]">
+    <section id="services" className="relative py-24 bg-[#090909] overflow-hidden">
       {/* Background spotlights */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary-red/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent-red/5 blur-[120px] rounded-full pointer-events-none" />
