@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ShieldCheck } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -57,11 +58,10 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-[#090909]/80 backdrop-blur-md border-b border-white/5 py-4"
-            : "bg-transparent py-6"
-        }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
+          ? "bg-[#090909]/80 backdrop-blur-md border-b border-white/5 py-4"
+          : "bg-transparent py-6"
+          }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
@@ -70,12 +70,18 @@ export default function Navbar() {
             onClick={(e) => handleScrollTo(e, "#home")}
             className="flex items-center gap-2 group cursor-pointer"
           >
-            <div className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-primary-red/10 border border-primary-red/20 group-hover:border-primary-red/50 transition-colors duration-300">
-              <ShieldCheck className="w-6 h-6 text-primary-red group-hover:scale-110 transition-transform duration-300" />
+            <div className="relative w-10 h-10 overflow-hidden flex items-center justify-center rounded-xl bg-primary-red/10 border border-primary-red/20 group-hover:border-primary-red/50 transition-colors duration-300">
+              <Image
+                src="/images/logo/kg_logo.png"
+                alt="KG Auto Logo"
+                fill
+                sizes="40px"
+                className="object-contain p-1 group-hover:scale-110 transition-transform duration-300"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-heading font-black tracking-tight text-white uppercase text-lg leading-none">
-                KG AUTOS
+                KG AUTO
               </span>
               <span className="font-body text-[9px] tracking-widest text-primary-red uppercase font-semibold leading-none mt-1">
                 Electronics

@@ -1,6 +1,7 @@
 "use client";
 
 import { ShieldCheck, Mail, Phone, MapPin, Send, Award } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function Footer() {
@@ -36,19 +37,25 @@ export default function Footer() {
               onClick={(e) => handleScrollTo(e, "#home")}
               className="flex items-center gap-2 group"
             >
-              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-primary-red/10 border border-primary-red/20 group-hover:border-primary-red/50 transition-colors duration-300">
-                <ShieldCheck className="w-6 h-6 text-primary-red" />
+              <div className="relative w-10 h-10 overflow-hidden flex items-center justify-center rounded-xl bg-primary-red/10 border border-primary-red/20 group-hover:border-primary-red/50 transition-colors duration-300">
+                <Image
+                  src="/images/logo/fav_icon.png"
+                  alt="KG Auto Logo"
+                  fill
+                  sizes="40px"
+                  className="object-contain p-1 group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-heading font-black tracking-tight text-white uppercase text-lg leading-none">
-                  KG AUTOS
+                  KG AUTO
                 </span>
                 <span className="font-body text-[9px] tracking-widest text-primary-red uppercase font-semibold leading-none mt-1">
                   Electronics
                 </span>
               </div>
             </a>
-            
+
             <p className="font-body text-sm text-muted-text leading-relaxed">
               Engineering-grade electronic module repairs and advanced programming solutions for prestige automotive brands. We restore rather than replace.
             </p>

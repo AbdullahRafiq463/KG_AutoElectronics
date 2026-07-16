@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "KG Auto Electronics | Premium Automotive Electronics & Diagnostics Experts",
+  title: "KG Auto Electronics | Automotive Electronics & Diagnostics Experts",
   description:
     "Expert workshop for luxury car electronics in Birmingham, UK. High-end repairs for Clock Springs, ABS Modules, Instrument Clusters, LED Tail Lights, and Steering Electronics for Porsche, BMW, Mercedes, Audi, and VW.",
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "KG Auto Electronics", url: "https://kgautoelectronics.com" }],
   openGraph: {
-    title: "KG Auto Electronics | Premium Automotive Electronics Repairs",
+    title: "KG Auto Electronics | Automotive Electronics Repairs",
     description:
       "Precision repairs for luxury automotive electronic components. Lifetime guarantees on selected items. Located in Birmingham, UK.",
     url: "https://kgautoelectronics.com",
@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "KG Auto Electronics | Premium Auto Electronics Repair Specialists",
     description: "Expert engineering solutions for complex vehicle electronic failures.",
+  },
+  icons: {
+    icon: "/images/logo/fav_icon.png",
+    apple: "/images/logo/fav_icon.png",
   },
 };
 
@@ -58,8 +62,8 @@ export default function RootLayout({
         "@id": "https://kgautoelectronics.com/#organization",
         "name": "KG Auto Electronics BRUM Ltd",
         "url": "https://kgautoelectronics.com",
-        "logo": "https://kgautoelectronics.com/images/logo.jpeg",
-        "image": "https://kgautoelectronics.com/images/logo.jpeg",
+        "logo": "https://kgautoelectronics.com/images/logo/kg_logo2.png",
+        "image": "https://kgautoelectronics.com/images/logo/kg_logo2.png",
         "telephone": "+447886480622",
         "priceRange": "$$",
         "address": {
