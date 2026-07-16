@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/common/ThemeToggle";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -21,15 +22,65 @@ const navItems = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("#home");
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    setTheme(savedTheme);
+    if (savedTheme === "light") {
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    if (newTheme === "light") {
+      document.documentElement.classList.add("light");
+    } else {
+      document.documentElement.classList.remove("light");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
+      // Scrolled state check
       if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
+
+      // Scroll Spy Logic
+      const offset = 120; // Navbar height + buffer
+      let currentSection = "#home";
+
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight;
+
+      if (window.scrollY + clientHeight >= scrollHeight - 20) {
+        currentSection = "#contact";
+      } else {
+        for (const item of navItems) {
+          const element = document.querySelector(item.href);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= offset) {
+              currentSection = item.href;
+            }
+          }
+        }
+      }
+      setActiveSection(currentSection);
     };
+
+    // Run scroll spy initially to match current scroll position
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -37,6 +88,7 @@ export default function Navbar() {
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
+    setActiveSection(href);
     const element = document.querySelector(href);
     if (element) {
       const offset = 80; // height of sticky header
@@ -70,13 +122,13 @@ export default function Navbar() {
             onClick={(e) => handleScrollTo(e, "#home")}
             className="flex items-center gap-2 group cursor-pointer"
           >
-            <div className="relative w-10 h-10 overflow-hidden flex items-center justify-center rounded-xl bg-primary-red/10 border border-primary-red/20 group-hover:border-primary-red/50 transition-colors duration-300">
+            <div className="relative w-10 h-10 overflow-hidden flex items-center justify-center rounded-full bg-primary-red/10 border border-primary-red/20 group-hover:border-primary-red/50 transition-colors duration-300">
               <Image
-                src="/images/logo/kg_logo.png"
+                src="/images/logo/kg_logo2.png"
                 alt="KG Auto Logo"
                 fill
                 sizes="40px"
-                className="object-contain p-1 group-hover:scale-110 transition-transform duration-300"
+                className="object-cover rounded-full p-0.5 group-hover:scale-110 transition-transform duration-300"
               />
             </div>
             <div className="flex flex-col">
@@ -91,17 +143,29 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 bg-[#141414]/40 border border-white/5 rounded-full backdrop-blur-sm">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => handleScrollTo(e, item.href)}
-                className="relative font-body text-xs font-semibold text-muted-text hover:text-white px-3.5 py-1.5 rounded-full transition-colors group"
-              >
-                {item.label}
-                <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary-red transition-all duration-300 group-hover:w-1/2" />
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href;
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleScrollTo(e, item.href)}
+                  className={`relative font-body text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors duration-300 group ${isActive ? "text-white" : "text-muted-text hover:text-white"
+                    }`}
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  {isActive ? (
+                    <motion.span
+                      layoutId="activeNavTab"
+                      className="absolute bottom-0.5 left-3.5 right-3.5 h-0.5 bg-primary-red rounded-full"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  ) : (
+                    <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary-red transition-all duration-300 group-hover:w-1/2" />
+                  )}
+                </a>
+              );
+            })}
           </div>
 
           {/* Right CTA */}
@@ -115,9 +179,11 @@ export default function Navbar() {
               <Phone className="w-3.5 h-3.5 text-primary-red animate-pulse" />
               07886 480622
             </a>
+            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
             <Button
               variant="outline"
               size="sm"
+              className="border-[#FF2D2D] text-[#FF2D2D] hover:bg-[#FF2D2D] hover:text-white transition-all duration-300"
               onClick={(e) => {
                 e.preventDefault();
                 const bookingSection = document.querySelector("#booking");
@@ -154,19 +220,30 @@ export default function Navbar() {
             className="fixed top-[73px] left-0 w-full h-[calc(100vh-73px)] bg-[#090909]/95 backdrop-blur-lg z-40 lg:hidden border-t border-white/5 flex flex-col justify-between py-10 px-6 overflow-y-auto"
           >
             <div className="flex flex-col gap-5">
-              {navItems.map((item, idx) => (
-                <motion.a
-                  key={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  href={item.href}
-                  onClick={(e) => handleScrollTo(e, item.href)}
-                  className="font-heading text-2xl font-bold tracking-tight text-white uppercase hover:text-primary-red transition-colors py-2"
-                >
-                  {item.label}
-                </motion.a>
-              ))}
+              {navItems.map((item, idx) => {
+                const isActive = activeSection === item.href;
+                return (
+                  <motion.a
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 }}
+                    href={item.href}
+                    onClick={(e) => handleScrollTo(e, item.href)}
+                    className={`font-heading text-2xl font-bold tracking-tight uppercase py-2 transition-colors relative flex items-center gap-3 ${isActive ? "text-primary-red" : "text-white hover:text-primary-red"
+                      }`}
+                  >
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeMobileDot"
+                        className="w-1.5 h-1.5 rounded-full bg-primary-red shrink-0"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                    <span>{item.label}</span>
+                  </motion.a>
+                );
+              })}
             </div>
 
             <motion.div
@@ -175,15 +252,18 @@ export default function Navbar() {
               transition={{ delay: 0.5 }}
               className="flex flex-col gap-4 border-t border-white/5 pt-8"
             >
-              <a
-                href="https://wa.me/447886480622"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 font-heading text-lg font-bold text-white uppercase hover:text-primary-red transition-colors"
-              >
-                <Phone className="w-5 h-5 text-primary-red" />
-                Call: 07886 480622
-              </a>
+              <div className="flex items-center justify-between gap-4 py-1">
+                <a
+                  href="https://wa.me/447886480622"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 font-heading text-lg font-bold text-white uppercase hover:text-primary-red transition-colors"
+                >
+                  <Phone className="w-5 h-5 text-primary-red" />
+                  Call: 07886 480622
+                </a>
+                <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+              </div>
               <Button
                 variant="primary"
                 className="w-full text-center py-4 text-base"

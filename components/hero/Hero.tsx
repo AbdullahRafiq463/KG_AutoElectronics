@@ -59,7 +59,7 @@ export default function Hero() {
       <div className="absolute inset-0 grid-pattern opacity-40 pointer-events-none" />
 
       {/* Content Container */}
-      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 py-12">
+      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 py-8 lg:py-10">
         {/* Text Area */}
         <motion.div
           variants={containerVariants}
@@ -158,14 +158,14 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          className="lg:col-span-5 relative w-full h-[300px] sm:h-[450px] lg:h-[550px] flex items-center justify-center"
+          className="lg:col-span-5 relative w-full h-[250px] sm:h-[380px] lg:h-[480px] flex items-center justify-center"
         >
           {/* Subtle Rotating Circles */}
           <div className="absolute w-[80%] h-[80%] border border-white/[0.02] rounded-full animate-[spin_40s_linear_infinite]" />
           <div className="absolute w-[60%] h-[60%] border border-primary-red/[0.04] rounded-full animate-[spin_25s_linear_infinite_reverse]" />
 
           {/* Premium Sports Car Image */}
-          <div className="relative w-full h-full scale-110 lg:scale-125 z-10 select-none pointer-events-none">
+          <div className="relative w-full h-full scale-105 lg:scale-115 -translate-y-4 lg:-translate-y-12 z-10 select-none pointer-events-none">
             <Image
               src="/images/hero_car.png"
               alt="Luxury Performance Vehicle with red neon outline reflections"
@@ -181,14 +181,14 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-6 left-6 glass px-4 py-2.5 rounded-2xl flex items-center gap-2 border border-white/5 shadow-2xl z-20"
+            className="absolute top-2 left-2 sm:top-6 sm:left-6 glass px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl flex items-center gap-2 border border-white/5 shadow-2xl z-20 animate-fade-in"
           >
-            <ShieldCheck className="w-5 h-5 text-primary-red" />
+            <ShieldCheck className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-primary-red" />
             <div className="flex flex-col">
-              <span className="font-heading text-[10px] font-bold text-white uppercase leading-none">
+              <span className="font-heading text-[9px] sm:text-[10px] font-bold text-white uppercase leading-none">
                 OEM Standards
               </span>
-              <span className="font-body text-[8px] text-muted-text leading-none mt-1">
+              <span className="font-body text-[7px] sm:text-[8px] text-muted-text leading-none mt-1">
                 Guaranteed Quality
               </span>
             </div>
@@ -197,14 +197,14 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute bottom-12 right-6 glass px-4 py-2.5 rounded-2xl flex items-center gap-2 border border-white/5 shadow-2xl z-20"
+            className="absolute bottom-2 right-2 sm:bottom-6 sm:right-6 glass px-3 py-2 sm:px-4 sm:py-2.5 rounded-2xl flex items-center gap-2 border border-white/5 shadow-2xl z-20 animate-fade-in"
           >
-            <Award className="w-5 h-5 text-primary-red" />
+            <Award className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-primary-red" />
             <div className="flex flex-col">
-              <span className="font-heading text-[10px] font-bold text-white uppercase leading-none">
+              <span className="font-heading text-[9px] sm:text-[10px] font-bold text-white uppercase leading-none">
                 Lifetime Warranty
               </span>
-              <span className="font-body text-[8px] text-muted-text leading-none mt-1">
+              <span className="font-body text-[7px] sm:text-[8px] text-muted-text leading-none mt-1">
                 On Select Repairs
               </span>
             </div>
