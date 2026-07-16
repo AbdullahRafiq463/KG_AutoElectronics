@@ -43,9 +43,9 @@ export default function Faq() {
 
   return (
     <section id="faqs" className="relative py-24 bg-[#090909] overflow-hidden">
-      {/* Background spot glows */}
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary-red/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-accent-red/5 blur-[120px] rounded-full pointer-events-none" />
+      {/* Background spot glows using radial gradients to prevent GPU rendering/filter bugs on mobile */}
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(255,45,45,0.05)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(217,4,41,0.05)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <Heading
@@ -75,8 +75,8 @@ export default function Faq() {
                 value={`item-${idx}`}
                 className="bg-[#141414]/50 border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors duration-300"
               >
-                <Accordion.Header className="flex">
-                  <Accordion.Trigger className="flex flex-1 items-center justify-between px-6 py-5 font-heading text-sm sm:text-base font-bold text-left uppercase tracking-tight text-white hover:text-primary-red transition-colors duration-200 cursor-pointer group">
+                <Accordion.Header className="w-full">
+                  <Accordion.Trigger className="w-full flex items-center justify-between px-6 py-5 font-heading text-sm sm:text-base font-bold text-left uppercase tracking-tight text-white hover:text-primary-red transition-colors duration-200 cursor-pointer group">
                     <span className="flex items-center gap-3">
                       <HelpCircle className="w-4.5 h-4.5 text-primary-red shrink-0" />
                       {faq.q}

@@ -56,9 +56,9 @@ export default function Stats() {
 
   return (
     <section className="relative py-20 bg-[#090909] border-y border-white/5 overflow-hidden">
-      {/* Background spot glows */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-primary-red/5 blur-[120px] rounded-full pointer-events-none -translate-y-1/2" />
-      <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-accent-red/5 blur-[120px] rounded-full pointer-events-none -translate-y-1/2" />
+      {/* Background spot glows using radial gradients to prevent GPU rendering/filter bugs on mobile */}
+      <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(255,45,45,0.05)_0%,transparent_70%)] pointer-events-none -translate-y-1/2" />
+      <div className="absolute top-1/2 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(217,4,41,0.05)_0%,transparent_70%)] pointer-events-none -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div

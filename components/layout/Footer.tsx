@@ -24,9 +24,9 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#141414] border-t border-white/5 pt-20 pb-8 overflow-hidden">
-      {/* Decorative Red Ambient Glow */}
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[250px] bg-primary-red/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute top-0 left-10 w-[300px] h-[300px] bg-primary-red/5 blur-[100px] rounded-full pointer-events-none" />
+      {/* Decorative Red Ambient Glow using radial gradients to prevent GPU rendering/filter bugs on mobile */}
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[250px] bg-[radial-gradient(circle,rgba(255,45,45,0.05)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 left-10 w-[300px] h-[300px] bg-[radial-gradient(circle,rgba(255,45,45,0.05)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">

@@ -50,9 +50,9 @@ export default function Hero() {
       {/* Background Gradients and Ambient Red Glow */}
       <div className="absolute top-0 right-0 w-full lg:w-2/3 h-full pointer-events-none z-0">
         <div className="absolute inset-0 bg-gradient-to-l from-[#090909] via-[#090909]/40 to-transparent" />
-        {/* Radial Red Light behind the car */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary-red/10 blur-[130px] rounded-full" />
-        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-accent-red/5 blur-[100px] rounded-full" />
+        {/* Radial Red Light behind the car using radial gradients to prevent GPU rendering/filter bugs on mobile */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(255,45,45,0.1)_0%,transparent_70%)]" />
+        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(217,4,41,0.05)_0%,transparent_70%)]" />
       </div>
 
       {/* Grid Overlay background */}
