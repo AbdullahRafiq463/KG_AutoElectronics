@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/common/ThemeToggle";
+import { usePathname, useRouter } from "next/navigation";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -20,33 +20,33 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
-  const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    setTheme(savedTheme);
-    if (savedTheme === "light") {
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-    }
-  }, []);
+    if (pathname !== "/") {
+      if (pathname === "/about") {
+        setActiveSection("#about");
+      } else {
+        setActiveSection("");
+      }
 
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    if (newTheme === "light") {
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-    }
-  };
+      const handleScrollSub = () => {
+        if (window.scrollY > 20) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
 
-  useEffect(() => {
+      handleScrollSub();
+      window.addEventListener("scroll", handleScrollSub);
+      return () => window.removeEventListener("scroll", handleScrollSub);
+    }
+
     const handleScroll = () => {
       // Scrolled state check
       if (window.scrollY > 20) {
@@ -83,11 +83,17 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsOpen(false);
+
+    if (pathname !== "/") {
+      router.push("/" + href);
+      return;
+    }
+
     setActiveSection(href);
     const element = document.querySelector(href);
     if (element) {
@@ -179,13 +185,16 @@ export default function Navbar() {
               <Phone className="w-3.5 h-3.5 text-primary-red animate-pulse" />
               07886 480622
             </a>
-            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
             <Button
               variant="outline"
               size="sm"
               className="border-[#FF2D2D] text-[#FF2D2D] hover:bg-[#FF2D2D] hover:text-white transition-all duration-300"
               onClick={(e) => {
                 e.preventDefault();
+                if (pathname !== "/") {
+                  router.push("/#booking");
+                  return;
+                }
                 const bookingSection = document.querySelector("#booking");
                 if (bookingSection) {
                   bookingSection.scrollIntoView({ behavior: "smooth" });
@@ -252,7 +261,7 @@ export default function Navbar() {
               transition={{ delay: 0.5 }}
               className="flex flex-col gap-4 border-t border-white/5 pt-8"
             >
-              <div className="flex items-center justify-between gap-4 py-1">
+              <div className="flex items-center justify-start gap-4 py-1">
                 <a
                   href="https://wa.me/447886480622"
                   target="_blank"
@@ -262,7 +271,6 @@ export default function Navbar() {
                   <Phone className="w-5 h-5 text-primary-red" />
                   Call: 07886 480622
                 </a>
-                <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
               </div>
               <Button
                 variant="primary"
@@ -270,6 +278,10 @@ export default function Navbar() {
                 onClick={(e) => {
                   e.preventDefault();
                   setIsOpen(false);
+                  if (pathname !== "/") {
+                    router.push("/#booking");
+                    return;
+                  }
                   const bookingSection = document.querySelector("#booking");
                   if (bookingSection) {
                     bookingSection.scrollIntoView({ behavior: "smooth" });

@@ -2,7 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/hero/Hero";
 import TrustBar from "@/components/common/TrustBar";
 import Services from "@/components/services/Services";
-import About from "@/components/about/About";
+import AboutPreview from "@/components/about/AboutPreview";
 import WhyChooseUs from "@/components/why-us/WhyChooseUs";
 import Process from "@/components/process/Process";
 import Gallery from "@/components/gallery/Gallery";
@@ -22,7 +22,7 @@ export default function Home() {
         <Hero />
         <TrustBar />
         <Services />
-        <About />
+        <AboutPreview />
         <WhyChooseUs />
         <Process />
         <Gallery />

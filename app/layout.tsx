@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import WhatsAppButton from "@/components/common/WhatsAppButton";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -121,20 +122,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                const theme = localStorage.getItem('theme') || 'dark';
-                if (theme === 'light') {
-                  document.documentElement.classList.add('light');
-                } else {
-                  document.documentElement.classList.remove('light');
-                }
-              })();
-            `,
-          }}
-        />
+
       </head>
       <body
         className={`${spaceGrotesk.variable} ${inter.variable} bg-[#090909] text-white font-sans antialiased`}
@@ -142,6 +130,7 @@ export default function RootLayout({
         <SmoothScroll>
           <div className="noise-overlay" />
           <div className="relative min-h-screen flex flex-col z-10">{children}</div>
+          <WhatsAppButton />
         </SmoothScroll>
       </body>
     </html>
