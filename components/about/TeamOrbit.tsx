@@ -30,14 +30,14 @@ const teamMembers: TeamMember[] = [
     pos: "right", // 3 o'clock
   },
   {
-    name: "Sarah Jenkins",
+    name: "Shahzad",
     role: "Diagnostics Specialist",
     desc: "ABS & steering logic calibrator",
     image: "/images/team/engr.png",
     pos: "bottom", // 6 o'clock
   },
   {
-    name: "Liam O'Connor",
+    name: "Abdullah Rafiq",
     role: "Workshop Operations",
     desc: "Quality assurance & mail-in logistics",
     image: "/images/team/dev.png",
@@ -105,7 +105,7 @@ export default function TeamOrbit() {
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
+
         {/* Section Heading */}
         <div className="text-center mb-16 md:mb-24">
           <span className="inline-flex items-center gap-2 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary-red bg-primary-red/10 border border-primary-red/20 rounded-full mb-4">
@@ -123,14 +123,14 @@ export default function TeamOrbit() {
 
         {/* Orbit Wheel Area */}
         <div className="relative flex items-center justify-center h-[380px] md:h-[620px] w-full max-w-[620px] mx-auto select-none">
-          
+
           {/* Static sports alloy wheel SVG spokes in background (remains fixed behind Owner) */}
           <div className="absolute inset-0 w-full h-full opacity-10 pointer-events-none">
             <svg className="w-full h-full text-white" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="50" cy="50" r="48" stroke="currentColor" strokeWidth="0.25" />
               <circle cx="50" cy="50" r="35" stroke="currentColor" strokeWidth="0.25" />
               <circle cx="50" cy="50" r="22" stroke="currentColor" strokeWidth="0.2" />
-              
+
               {/* Radial Spokes (Sports Wheel lines) */}
               <line x1="50" y1="2" x2="50" y2="98" stroke="currentColor" strokeWidth="0.2" />
               <line x1="2" y1="50" x2="98" y2="50" stroke="currentColor" strokeWidth="0.2" />
@@ -167,7 +167,7 @@ export default function TeamOrbit() {
                 />
               </div>
             </motion.div>
-            
+
             {/* Center Owner Designation Glass Badge */}
             <div className="mt-4 px-4 py-1.5 glass rounded-full border border-primary-red/30 shadow-[0_5px_15px_rgba(0,0,0,0.4)] text-center max-w-[130px] md:max-w-none">
               <p className="font-heading text-[10px] md:text-xs font-black text-white uppercase tracking-wider leading-none">
@@ -195,9 +195,8 @@ export default function TeamOrbit() {
               return (
                 <div
                   key={index}
-                  className={`absolute team-member-node select-none cursor-pointer ${
-                    positionClasses[member.pos]
-                  }`}
+                  className={`absolute team-member-node select-none cursor-pointer ${positionClasses[member.pos]
+                    }`}
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={handleMouseLeave}
                   onClick={() => hoveredIndex === index ? handleMouseLeave() : handleMouseEnter(index)}
@@ -205,18 +204,16 @@ export default function TeamOrbit() {
                   <div className="relative group/avatar">
                     {/* Glowing effect ring behind active avatar */}
                     <div
-                      className={`absolute -inset-2 bg-gradient-to-r from-primary-red to-[#FF6B6B] rounded-full blur transition-opacity duration-300 -z-10 ${
-                        isActive ? "opacity-70 scale-105" : "opacity-0 group-hover/avatar:opacity-30"
-                      }`}
+                      className={`absolute -inset-2 bg-gradient-to-r from-primary-red to-[#FF6B6B] rounded-full blur transition-opacity duration-300 -z-10 ${isActive ? "opacity-70 scale-105" : "opacity-0 group-hover/avatar:opacity-30"
+                        }`}
                     />
 
                     {/* Member Avatar Circle Container */}
                     <div
-                      className={`relative w-[65px] h-[65px] md:w-[100px] md:h-[100px] rounded-full p-0.5 border bg-[#141414]/90 backdrop-blur-sm transition-all duration-300 ${
-                        isActive
-                          ? "border-primary-red scale-110 shadow-[0_0_20px_rgba(255,45,45,0.4)]"
-                          : "border-white/10 hover:border-white/30"
-                      }`}
+                      className={`relative w-[65px] h-[65px] md:w-[100px] md:h-[100px] rounded-full p-0.5 border bg-[#141414]/90 backdrop-blur-sm transition-all duration-300 ${isActive
+                        ? "border-primary-red scale-110 shadow-[0_0_20px_rgba(255,45,45,0.4)]"
+                        : "border-white/10 hover:border-white/30"
+                        }`}
                     >
                       <div className="relative w-full h-full rounded-full overflow-hidden bg-neutral-900">
                         <Image

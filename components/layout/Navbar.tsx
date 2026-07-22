@@ -2,15 +2,15 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, ShieldCheck } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "next/navigation";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
+  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
   { label: "Why Us", href: "#why-us" },
   { label: "Process", href: "#process" },
   { label: "Gallery", href: "#gallery" },
@@ -29,7 +29,9 @@ export default function Navbar() {
   useEffect(() => {
     if (pathname !== "/") {
       if (pathname === "/about") {
-        setActiveSection("#about");
+        setActiveSection("/about");
+      } else if (pathname === "/services") {
+        setActiveSection("/services");
       } else {
         setActiveSection("");
       }
@@ -55,7 +57,7 @@ export default function Navbar() {
         setIsScrolled(false);
       }
 
-      // Scroll Spy Logic
+      // Scroll Spy Logic for homepage hash sections
       const offset = 120; // Navbar height + buffer
       let currentSection = "#home";
 
@@ -66,11 +68,13 @@ export default function Navbar() {
         currentSection = "#contact";
       } else {
         for (const item of navItems) {
-          const element = document.querySelector(item.href);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= offset) {
-              currentSection = item.href;
+          if (item.href.startsWith("#")) {
+            const element = document.querySelector(item.href);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              if (rect.top <= offset) {
+                currentSection = item.href;
+              }
             }
           }
         }
@@ -89,6 +93,34 @@ export default function Navbar() {
     e.preventDefault();
     setIsOpen(false);
 
+    if (href === "/services") {
+      if (pathname === "/services") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push("/services");
+      }
+      return;
+    }
+
+    if (href === "/about") {
+      if (pathname === "/about") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        router.push("/about");
+      }
+      return;
+    }
+
+    if (href === "#home") {
+      if (pathname !== "/") {
+        router.push("/");
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setActiveSection("#home");
+      }
+      return;
+    }
+
     if (pathname !== "/") {
       router.push("/" + href);
       return;
@@ -97,7 +129,7 @@ export default function Navbar() {
     setActiveSection(href);
     const element = document.querySelector(href);
     if (element) {
-      const offset = 80; // height of sticky header
+      const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -116,10 +148,11 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
-          ? "bg-[#090909]/80 backdrop-blur-md border-b border-white/5 py-4"
-          : "bg-transparent py-6"
-          }`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-[#090909]/80 backdrop-blur-md border-b border-white/5 py-4"
+            : "bg-transparent py-6"
+        }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
@@ -156,8 +189,9 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleScrollTo(e, item.href)}
-                  className={`relative font-body text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors duration-300 group ${isActive ? "text-white" : "text-muted-text hover:text-white"
-                    }`}
+                  className={`relative font-body text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors duration-300 group ${
+                    isActive ? "text-white" : "text-muted-text hover:text-white"
+                  }`}
                 >
                   <span className="relative z-10">{item.label}</span>
                   {isActive ? (
@@ -188,7 +222,7 @@ export default function Navbar() {
             <Button
               variant="outline"
               size="sm"
-              className="border-[#FF2D2D] text-[#FF2D2D] hover:bg-[#FF2D2D] hover:text-white transition-all duration-300"
+              className="border-[#FF2D2D] text-[#FF2D2D] hover:bg-[#FF2D2D] hover:text-white transition-all duration-300 cursor-pointer"
               onClick={(e) => {
                 e.preventDefault();
                 if (pathname !== "/") {
@@ -239,8 +273,9 @@ export default function Navbar() {
                     transition={{ delay: idx * 0.05 }}
                     href={item.href}
                     onClick={(e) => handleScrollTo(e, item.href)}
-                    className={`font-heading text-2xl font-bold tracking-tight uppercase py-2 transition-colors relative flex items-center gap-3 ${isActive ? "text-primary-red" : "text-white hover:text-primary-red"
-                      }`}
+                    className={`font-heading text-2xl font-bold tracking-tight uppercase py-2 transition-colors relative flex items-center gap-3 ${
+                      isActive ? "text-primary-red" : "text-white hover:text-primary-red"
+                    }`}
                   >
                     {isActive && (
                       <motion.span
@@ -274,7 +309,7 @@ export default function Navbar() {
               </div>
               <Button
                 variant="primary"
-                className="w-full text-center py-4 text-base"
+                className="w-full text-center py-4 text-base cursor-pointer"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsOpen(false);

@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useCallback } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import { Star, Quote, ArrowLeft, ArrowRight } from "lucide-react";
+import React from "react";
+import { Star, Quote } from "lucide-react";
 import { Heading } from "@/components/ui/heading";
 
 const testimonials = [
@@ -10,7 +9,7 @@ const testimonials = [
     name: "Mark Thompson",
     role: "BMW M4 Owner",
     rating: 5,
-    quote: "My steering wheel buttons and paddle shifters completely stopped working, and the dealership wanted £1,800 for a new column. KG Autos rebuilt the clock spring and recoded the SZL module inside 2 hours for a fraction of that cost. Unbelievable service!",
+    quote: "My steering wheel buttons and paddle shifters completely stopped working, and the dealership wanted £1,800 for a new column. KG Autos rebuilt the clock spring and recoded the SZL module inside 2 hours for a fraction of that cost.",
   },
   {
     name: "Sarah Jenkins",
@@ -30,97 +29,86 @@ const testimonials = [
     rating: 5,
     quote: "Excellent ABS pump repair. The dashboard looked like a Christmas tree with stability and brake errors. KG Autos ran logic diagnostic routines, solved the electronic unit crash, and re-flashed the module perfectly. Professional engineers.",
   },
+  {
+    name: "Oliver Wright",
+    role: "Porsche Cayenne Owner",
+    rating: 5,
+    quote: "Diagnosed a complex CAN bus gateway error that two local garages gave up on. Re-soldered component micro-pins and returned the module within 24 hours. Genuine dealership-level expertise.",
+  },
+  {
+    name: "Richard Croft",
+    role: "Range Rover Sport Owner",
+    rating: 5,
+    quote: "Saved me thousands on a complete instrument cluster replacement. Display backlight was dead. Shipped it to Birmingham and had it back fixed with lifetime warranty in 2 days. 10/10 service!",
+  },
 ];
 
 export default function Testimonials() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center", skipSnaps: false });
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  // Duplicating list 3x for seamless infinite marquee loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
   return (
     <section id="testimonials" className="relative py-24 bg-[#141414] overflow-hidden">
-      {/* Background radial glows using radial gradients to prevent GPU rendering/filter bugs on mobile */}
+      {/* Background radial glows */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(255,45,45,0.05)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(217,4,41,0.05)_0%,transparent_70%)] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <Heading
-            badge="Testimonials"
-            title="What Our Clients Say"
-            subtitle="Read real responses from vehicle owners and fleet managers who bypassed dealership rates with our engineering-grade repairs."
-            align="left"
-            className="mb-0 md:mb-0"
-          />
+      <div className="max-w-7xl mx-auto px-6 relative z-10 mb-12">
+        <Heading
+          badge="Testimonials"
+          title="What Our Clients Say"
+          subtitle="Read real responses from vehicle owners and fleet managers who bypassed dealership rates with our engineering-grade repairs."
+          align="center"
+        />
+      </div>
 
-          {/* Carousel Buttons */}
-          <div className="flex items-center justify-center md:justify-start gap-3 mt-6 md:mt-0">
-            <button
-              onClick={scrollPrev}
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-surface border border-white/5 hover:border-primary-red hover:text-primary-red text-white transition-all cursor-pointer"
-              aria-label="Previous slide"
+      {/* Marquee Track Container with Gradient Edge Fades */}
+      <div className="relative w-full overflow-hidden">
+        {/* Left & Right Gradient Overlays for Luxury Edge Blur */}
+        <div className="absolute top-0 bottom-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-[#141414] via-[#141414]/80 to-transparent z-20 pointer-events-none" />
+        <div className="absolute top-0 bottom-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-[#141414] via-[#141414]/80 to-transparent z-20 pointer-events-none" />
+
+        {/* Continuous Horizontal Auto-Scrolling Track */}
+        <div className="animate-marquee flex gap-6 py-4">
+          {duplicatedTestimonials.map((t, idx) => (
+            <div
+              key={idx}
+              className="w-[320px] sm:w-[380px] md:w-[420px] shrink-0"
             >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={scrollNext}
-              className="w-12 h-12 flex items-center justify-center rounded-full bg-surface border border-white/5 hover:border-primary-red hover:text-primary-red text-white transition-all cursor-pointer"
-              aria-label="Next slide"
-            >
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
+              <div className="glass-card h-full p-6 sm:p-8 rounded-2xl flex flex-col justify-between border border-white/10 relative bg-[#090909]/70 hover:border-primary-red/40 transition-all duration-300 shadow-xl group">
+                {/* Decorative Quote Icon */}
+                <Quote className="absolute top-6 right-6 w-8 h-8 text-neutral-800/40 pointer-events-none group-hover:text-primary-red/20 transition-colors" />
 
-        {/* Embla Carousel viewport */}
-        <div className="overflow-hidden cursor-grab active:cursor-grabbing" ref={emblaRef}>
-          <div className="flex gap-6">
-            {testimonials.map((t, idx) => (
-              <div
-                key={idx}
-                className="flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] min-w-0"
-              >
-                <div className="glass-card h-full p-8 rounded-2xl flex flex-col justify-between border border-white/5 relative bg-[#090909]/60">
-                  {/* Decorative Quote Icon */}
-                  <Quote className="absolute top-6 right-6 w-8 h-8 text-neutral-800/40 pointer-events-none" />
-
-                  <div>
-                    {/* Stars */}
-                    <div className="flex items-center gap-1 mb-6">
-                      {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-primary-red text-primary-red" />
-                      ))}
-                    </div>
-
-                    <p className="font-body text-sm text-neutral-300 leading-relaxed italic mb-8">
-                      "{t.quote}"
-                    </p>
+                <div>
+                  {/* Rating Stars */}
+                  <div className="flex items-center gap-1 mb-5">
+                    {[...Array(t.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-primary-red text-primary-red" />
+                    ))}
                   </div>
 
-                  <div className="flex items-center gap-3 border-t border-white/5 pt-6">
-                    {/* Fake Initial Avatar */}
-                    <div className="w-10 h-10 rounded-full bg-primary-red/10 border border-primary-red/20 flex items-center justify-center font-heading text-sm font-bold text-primary-red">
-                      {t.name[0]}
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="font-heading text-sm font-bold text-white uppercase tracking-tight">
-                        {t.name}
-                      </span>
-                      <span className="font-body text-[10px] text-muted-text uppercase font-semibold">
-                        {t.role}
-                      </span>
-                    </div>
+                  <p className="font-body text-xs sm:text-sm text-neutral-300 leading-relaxed italic mb-6">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3 border-t border-white/5 pt-5 mt-auto">
+                  {/* Avatar Letter */}
+                  <div className="w-10 h-10 rounded-full bg-primary-red/10 border border-primary-red/30 flex items-center justify-center font-heading text-sm font-bold text-primary-red shrink-0 group-hover:scale-105 transition-transform">
+                    {t.name[0]}
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="font-heading text-sm font-bold text-white uppercase tracking-tight">
+                      {t.name}
+                    </span>
+                    <span className="font-body text-[10px] text-muted-text uppercase font-semibold">
+                      {t.role}
+                    </span>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

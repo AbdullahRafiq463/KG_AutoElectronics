@@ -12,37 +12,37 @@ const galleryItems = [
   {
     title: "Steering Angle Sensor Calibration",
     category: "Diagnostics",
-    image: "/images/clock_spring.png",
+    image: "/images/gallery/6.jpg",
     description: "Re-programming steering angle offsets on an Audi A6 slip ring slip-ring SZL module.",
   },
   {
     title: "Porsche 911 GT3 Electronics Diagnostic",
     category: "Completed Vehicles",
-    image: "/images/hero_car.png",
+    image: "/images/gallery/1.jpg",
     description: "Successful complete diagnostic sweep and SRS module crash code clearance.",
   },
   {
     title: "Mercedes W212 Taillight Repair",
     category: "Repairs",
-    image: "/images/led_taillight.png",
+    image: "/images/gallery/2.jpg",
     description: "Micro-soldering failed capacitor arrays on an E300 LED rear taillight module.",
   },
   {
     title: "Vito W447 Instrument Speedo Rebuild",
     category: "Electronics",
-    image: "/images/instrument_cluster.png",
+    image: "/images/gallery/3.webp",
     description: "Rebuilding power supply rails for LCD speedo panel backlight illumination.",
   },
   {
     title: "Prestige Sports Car Service Bay",
     category: "Workshop",
-    image: "/images/hero_car.png",
+    image: "/images/gallery/4.jpg",
     description: "Clean modern engineering lab setup with high-end logic analyzers.",
   },
   {
     title: "BMW F10 SZL Clock Spring Repair",
     category: "Repairs",
-    image: "/images/clock_spring.png",
+    image: "/images/gallery/5.jpg",
     description: "Restoring ribbon cable connections inside a BMW 5-Series steering slip ring.",
   },
 ];
@@ -74,11 +74,10 @@ export default function Gallery() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-4.5 py-2 text-xs font-semibold rounded-full uppercase tracking-wider transition-all duration-300 border cursor-pointer ${
-                selectedCategory === category
-                  ? "bg-[#FF2D2D] border-primary-red text-white shadow-[0_0_15px_rgba(255,45,45,0.3)]"
-                  : "bg-surface border-white/5 text-muted-text hover:text-white hover:border-neutral-700"
-              }`}
+              className={`px-4.5 py-2 text-xs font-semibold rounded-full uppercase tracking-wider transition-all duration-300 border cursor-pointer ${selectedCategory === category
+                ? "bg-[#FF2D2D] border-primary-red text-white shadow-[0_0_15px_rgba(255,45,45,0.3)]"
+                : "bg-surface border-white/5 text-muted-text hover:text-white hover:border-neutral-700"
+                }`}
             >
               {category}
             </button>

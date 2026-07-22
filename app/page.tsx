@@ -7,7 +7,6 @@ import WhyChooseUs from "@/components/why-us/WhyChooseUs";
 import Process from "@/components/process/Process";
 import Gallery from "@/components/gallery/Gallery";
 import BeforeAfter from "@/components/before-after/BeforeAfter";
-import Stats from "@/components/stats/Stats";
 import Testimonials from "@/components/testimonials/Testimonials";
 import Faq from "@/components/faq/Faq";
 import Appointment from "@/components/booking/Appointment";
@@ -27,7 +26,6 @@ export default function Home() {
         <Process />
         <Gallery />
         <BeforeAfter />
-        <Stats />
         <Testimonials />
         <Faq />
         <Appointment />

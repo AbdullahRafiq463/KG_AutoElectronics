@@ -57,7 +57,7 @@ export default function AboutPreview() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-          
+
           {/* Left Side Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -99,7 +99,7 @@ export default function AboutPreview() {
               >
                 {/* Glow ripple effect inside */}
                 <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
-                
+
                 {/* Text and sliding arrow */}
                 <span className="relative z-10 flex items-center gap-2">
                   View More
@@ -115,7 +115,7 @@ export default function AboutPreview() {
                   </motion.span>
                 </span>
               </motion.button>
-              
+
               {/* External glow backing */}
               <div className="absolute -inset-1 bg-gradient-to-r from-primary-red to-[#D90429] rounded-full blur opacity-25 group-hover:opacity-60 transition duration-500 -z-10" />
             </div>
@@ -140,7 +140,7 @@ export default function AboutPreview() {
               {/* Soft red gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
               <div className="absolute inset-0 bg-primary-red/10 mix-blend-overlay z-10" />
-              
+
               {/* Main Image */}
               <Image
                 src="/images/garrage.jpeg"

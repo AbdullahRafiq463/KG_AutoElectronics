@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Compass, ShieldAlert, Cpu, Lightbulb, Activity, RotateCcw, AlertTriangle, Disc, Gauge, HelpCircle } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Compass, ShieldAlert, Cpu, Lightbulb, Activity, RotateCcw, AlertTriangle, Disc, Gauge, HelpCircle } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
@@ -35,7 +37,7 @@ const services = [
     icon: Disc,
     title: "ABS Module Programming",
     description: "Diagnostics, rebuilding, and recoding of ABS pumps and electronic modules. Fixes brake communication errors and stability warning lights.",
-    image: "/images/clock_spring.png", // Reusable or CSS pattern
+    image: "/images/clock_spring.png",
     tag: "Braking Systems",
     compatibility: "Volvo ABS Pumps, Audi, BMW, VW, Ford",
   },
@@ -79,11 +81,9 @@ export default function Services() {
     e.preventDefault();
     const bookingSection = document.querySelector("#booking");
     if (bookingSection) {
-      // Set service in form if possible, then scroll
       const selectEl = document.getElementById("service-select") as HTMLSelectElement;
       if (selectEl) {
         selectEl.value = serviceName.toLowerCase().replace(/\s+/g, "-");
-        // Dispatch change event to react-hook-form
         selectEl.dispatchEvent(new Event("change", { bubbles: true }));
       }
       bookingSection.scrollIntoView({ behavior: "smooth" });
@@ -92,7 +92,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-24 bg-[#090909] overflow-hidden">
-      {/* Background spotlights using radial gradients to prevent GPU rendering/filter bugs on mobile */}
+      {/* Background spotlights */}
       <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(255,45,45,0.05)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(217,4,41,0.05)_0%,transparent_70%)] pointer-events-none" />
 
@@ -172,6 +172,26 @@ export default function Services() {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        {/* Explore All Services Navigation Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-14 text-center flex flex-col items-center justify-center"
+        >
+          <Link href="/services">
+            <Button
+              size="lg"
+              variant="primary"
+              className="px-8 py-4 text-sm font-heading font-bold uppercase tracking-wider shadow-[0_0_30px_rgba(255,45,45,0.35)] group cursor-pointer"
+            >
+              <span>Explore All Services</span>
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1.5 transition-transform" />
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>

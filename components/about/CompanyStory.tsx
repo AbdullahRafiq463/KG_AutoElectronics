@@ -90,7 +90,7 @@ export default function CompanyStory() {
               {/* Parallax Image */}
               <motion.div style={{ y: imageY }} className="absolute -inset-y-16 inset-x-0">
                 <Image
-                  src="/images/team/owner.png"
+                  src="/images/gallery/2.jpg"
                   alt="KG Auto Electronics Workshop Diagnostics"
                   fill
                   sizes="(max-width: 1024px) 100vw, 500px"
@@ -102,19 +102,19 @@ export default function CompanyStory() {
             {/* Behind image glow */}
             <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-primary-red/10 rounded-full blur-3xl -z-10 animate-pulse" />
 
-            {/* Experience Floating Badge */}
+            {/* Experience Floating Badge - Above large image in stack */}
             <motion.div
               style={{ y: badgeY }}
-              className="absolute -bottom-6 right-6 md:-right-6 glass-card rounded-2xl p-5 flex items-center gap-4 shadow-[0_15px_40px_rgba(0,0,0,0.6)] border border-primary-red/20"
+              className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 md:-right-4 z-30 glass bg-[#090909]/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 flex items-center gap-4 shadow-[0_15px_40px_rgba(0,0,0,0.8)] border border-primary-red/30"
             >
-              <div className="w-12 h-12 rounded-xl bg-primary-red/10 border border-primary-red/30 flex items-center justify-center text-primary-red shadow-[0_0_15px_rgba(255,45,45,0.2)]">
+              <div className="w-12 h-12 rounded-xl bg-primary-red/10 border border-primary-red/30 flex items-center justify-center text-primary-red shadow-[0_0_15px_rgba(255,45,45,0.2)] shrink-0">
                 <Award className="w-6 h-6" />
               </div>
               <div>
-                <p className="font-heading text-xl font-black text-white leading-none uppercase">
+                <p className="font-heading text-lg sm:text-xl font-black text-white leading-none uppercase">
                   10+ Years
                 </p>
-                <p className="font-body text-[10px] text-muted-text uppercase tracking-wider mt-1.5 font-bold">
+                <p className="font-body text-[10px] text-neutral-300 uppercase tracking-wider mt-1.5 font-bold">
                   Repair Experience
                 </p>
               </div>
