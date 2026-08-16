@@ -155,7 +155,7 @@ export default function ServiceCard({
 
         {/* Bottom Row: Buy on eBay */}
         <a
-          href={service.ebayUrl}
+          href="https://www.ebay.co.uk/usr/kgautoelectronics"
           target="_blank"
           rel="noopener noreferrer"
           className="w-full"
