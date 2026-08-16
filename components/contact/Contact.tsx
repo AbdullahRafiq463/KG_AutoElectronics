@@ -155,7 +155,7 @@ export default function Contact() {
                 <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-surface border border-white/5 mb-4">
                   <Clock className="w-5 h-5 text-primary-red" />
                 </div>
-                
+
                 <h4 className="font-heading text-xs font-bold text-white uppercase tracking-wider mb-4">
                   Opening Hours
                 </h4>
@@ -188,7 +188,7 @@ export default function Contact() {
                     className="group bg-[#141414]/90 border border-white/5 p-4 rounded-xl flex flex-col justify-between hover:border-primary-red/40 transition-all duration-300"
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-surface border border-white/5 group-hover:border-primary-red/30 transition-colors">
+                      <div className="w-15 h-8 flex items-center justify-center rounded-lg bg-surface border border-white/5 group-hover:border-primary-red/30 transition-colors">
                         {sc.icon}
                       </div>
                       <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-primary-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
