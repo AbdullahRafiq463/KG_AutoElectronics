@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "mercedes led tail light fix",
     "volvo bcm repair",
     "ecu remapping and bench repair",
-    "auto electronics birmingham",
+    "auto electronics oldham",
   ],
   openGraph: {
     title: "Professional Auto Electronics Repairs | KG Auto Electronics",
@@ -82,8 +82,8 @@ export default function ServicesPage() {
             "description": service.description,
             "provider": {
               "@type": "AutoRepair",
-              "name": "KG Auto Electronics BRUM Ltd",
-              "telephone": "+447886480622",
+              "name": "KG Auto Electronics Ltd",
+              "telephone": "+447305330916",
             },
             "offers": {
               "@type": "Offer",

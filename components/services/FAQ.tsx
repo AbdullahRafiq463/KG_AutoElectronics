@@ -19,7 +19,7 @@ const FAQ_ITEMS = [
   {
     icon: PackageCheck,
     q: "Can I ship my module?",
-    a: "Absolutely! We offer nationwide UK and international mail-in repair services. Simply book your repair online, carefully pack your module with bubble wrap, and ship it to our workshop address in Birmingham. We repair, bench-test, and dispatch it back via tracked, insured courier.",
+    a: "Absolutely! We offer nationwide UK and international mail-in repair services. Simply book your repair online, carefully pack your module with bubble wrap, and ship it to our workshop address in Oldham. We repair, bench-test, and dispatch it back via tracked, insured courier.",
   },
   {
     icon: Car,
@@ -29,7 +29,7 @@ const FAQ_ITEMS = [
   {
     icon: CalendarCheck,
     q: "How do I book?",
-    a: "You can book directly by clicking the 'Book Repair' button on any service card, by filling out our online booking form, or by contacting our team via WhatsApp / Phone at +44 7886 480622. If buying a mail-in repair service, you can also purchase directly through our official eBay store.",
+    a: "You can book directly by clicking the 'Book Repair' button on any service card, by filling out our online booking form, or by contacting our team via WhatsApp / Phone at 0730 5330916. If buying a mail-in repair service, you can also purchase directly through our official eBay store (https://www.ebay.co.uk/usr/kgautoelectronics).",
   },
 ];
 

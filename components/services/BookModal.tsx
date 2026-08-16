@@ -35,7 +35,7 @@ export default function BookModal({ service, onClose }: BookModalProps) {
     const text = encodeURIComponent(
       `Hello KG Auto Electronics, I would like to book a repair for:\n\n*Service:* ${currentService.title}\n*Name:* ${customerName || "N/A"}\n*Phone:* ${phone || "N/A"}\n*Vehicle / Reg:* ${vehicleReg || "N/A"}\n*Notes:* ${faultNotes || "No extra notes"}`
     );
-    window.open(`https://wa.me/447886480622?text=${text}`, "_blank");
+    window.open(`https://wa.me/447305330916?text=${text}`, "_blank");
   };
 
   return (
@@ -147,7 +147,7 @@ export default function BookModal({ service, onClose }: BookModalProps) {
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      placeholder="e.g. 07886 480622"
+                      placeholder="e.g. 0730 5330916"
                       className="w-full bg-[#090909] border border-white/15 rounded-xl px-3 py-2 text-xs font-body text-white placeholder-neutral-500 focus:outline-none focus:border-primary-red"
                     />
                   </div>

@@ -267,7 +267,6 @@ export default function Hero() {
               </div>
               <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight flex items-center gap-1 justify-center">
                 <span>5.0</span>
-                <span className="text-sm font-normal text-primary-red">★★★★★</span>
               </h3>
               <h4 className="font-heading text-[11px] font-bold text-white uppercase tracking-wider mt-1">
                 Google Reviews

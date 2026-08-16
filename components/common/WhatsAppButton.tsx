@@ -15,7 +15,7 @@ export default function WhatsAppButton() {
     return () => clearTimeout(timer);
   }, []);
 
-  const whatsappNumber = "447886480622";
+  const whatsappNumber = "447305330916";
   const customMessage = encodeURIComponent("Hi KG Auto, I'm interested in booking a service or diagnostics for my vehicle.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${customMessage}`;
 

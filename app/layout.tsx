@@ -17,22 +17,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "KG Auto Electronics | Automotive Electronics & Diagnostics Experts",
   description:
-    "Expert workshop for luxury car electronics in Birmingham, UK. High-end repairs for Clock Springs, ABS Modules, Instrument Clusters, LED Tail Lights, and Steering Electronics for Porsche, BMW, Mercedes, Audi, and VW.",
+    "Expert workshop for luxury car electronics in Oldham, UK. High-end repairs for Clock Springs, ABS Modules, Instrument Clusters, LED Tail Lights, and Steering Electronics for Porsche, BMW, Mercedes, Audi, and VW.",
   keywords: [
     "automotive electronics repair",
-    "clock spring repair birmingham",
+    "clock spring repair oldham",
     "instrument cluster repair",
     "abs module repair",
     "mercedes led tail light fix",
     "bmw steering electronics",
-    "auto diagnostics birmingham",
+    "auto diagnostics oldham",
     "squib repair",
   ],
   authors: [{ name: "KG Auto Electronics", url: "https://kgautoelectronics.com" }],
   openGraph: {
     title: "KG Auto Electronics | Automotive Electronics Repairs",
     description:
-      "Precision repairs for luxury automotive electronic components. Lifetime guarantees on selected items. Located in Birmingham, UK.",
+      "Precision repairs for luxury automotive electronic components. Lifetime guarantees on selected items. Located in Oldham, UK.",
     url: "https://kgautoelectronics.com",
     siteName: "KG Auto Electronics",
     locale: "en_GB",
@@ -61,24 +61,30 @@ export default function RootLayout({
       {
         "@type": "AutoRepair",
         "@id": "https://kgautoelectronics.com/#organization",
-        "name": "KG Auto Electronics BRUM Ltd",
+        "name": "KG Auto Electronics Ltd",
         "url": "https://kgautoelectronics.com",
         "logo": "https://kgautoelectronics.com/images/logo/kg_logo2.png",
         "image": "https://kgautoelectronics.com/images/logo/kg_logo2.png",
-        "telephone": "+447886480622",
+        "telephone": "+447305330916",
+        "email": "kgautoelectronics@gmail.com",
         "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Unit 3 Industrial Estate, Sycamore Road Handsworth",
-          "addressLocality": "Birmingham",
-          "postalCode": "B21 0QW",
+          "streetAddress": "18 Halliwell Avenue",
+          "addressLocality": "Oldham",
+          "postalCode": "OL8 3DL",
           "addressCountry": "GB",
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 52.5025658,
-          "longitude": -1.9427139,
+          "latitude": 53.5358,
+          "longitude": -2.1158,
         },
+        "sameAs": [
+          "https://www.tiktok.com/@autosrepairs",
+          "https://www.ebay.co.uk/usr/kgautoelectronics",
+          "https://www.facebook.com/p/KG-Auto-Electronics-Ltd-100083765344316/"
+        ],
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
@@ -95,7 +101,8 @@ export default function RootLayout({
         ],
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+447886480622",
+          "telephone": "+447305330916",
+          "email": "kgautoelectronics@gmail.com",
           "contactType": "customer service",
           "availableLanguage": "en",
         },

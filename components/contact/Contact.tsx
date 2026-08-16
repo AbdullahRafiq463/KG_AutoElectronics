@@ -8,23 +8,59 @@ const contactCards = [
   {
     icon: Phone,
     title: "Direct WhatsApp Line",
-    value: "07886 480622",
-    href: "https://wa.me/447886480622",
+    value: "0730 5330916",
+    href: "https://wa.me/447305330916",
     actionText: "Chat Now",
   },
   {
     icon: Mail,
     title: "Email Assistance",
-    value: "kgautoelectronicsbrum@gmail.com",
-    href: "mailto:kgautoelectronicsbrum@gmail.com",
+    value: "kgautoelectronics@gmail.com",
+    href: "mailto:kgautoelectronics@gmail.com",
     actionText: "Write Us",
   },
   {
     icon: MapPin,
-    title: "Birmingham Lab Location",
-    value: "Unit 3 Industrial Estate, Sycamore Road Handsworth, B21 0QW",
-    href: "https://maps.google.com/?q=Unit+3+Industrial+Estate,+Sycamore+Road+Handsworth+Birmingham,+B21+0QW",
+    title: "Oldham Lab Location",
+    value: "KG Auto Electronics, 18 Halliwell Avenue Oldham, OL8 3DL",
+    href: "https://maps.google.com/?q=18+Halliwell+Avenue+Oldham+OL8+3DL",
     actionText: "Get Directions",
+  },
+];
+
+const socialCards = [
+  {
+    name: "TikTok",
+    handle: "@autosrepairs",
+    href: "https://www.tiktok.com/@autosrepairs",
+    actionText: "Follow Channel",
+    icon: (
+      <svg className="w-5 h-5 fill-current text-primary-red" viewBox="0 0 24 24">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.29 0 .56.04.82.12V9.38a6.37 6.37 0 00-4.63 1.07A6.33 6.33 0 003.35 15a6.34 6.34 0 0010.86 4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-.61-.01z" />
+      </svg>
+    ),
+  },
+  {
+    name: "eBay Store",
+    handle: "kgautoelectronics",
+    href: "https://www.ebay.co.uk/usr/kgautoelectronics",
+    actionText: "Browse Store",
+    icon: (
+      <span className="font-heading font-extrabold text-sm text-primary-red tracking-tight">
+        eBay
+      </span>
+    ),
+  },
+  {
+    name: "Facebook",
+    handle: "KG Auto Electronics Ltd",
+    href: "https://www.facebook.com/p/KG-Auto-Electronics-Ltd-100083765344316/",
+    actionText: "Visit Page",
+    icon: (
+      <svg className="w-5 h-5 fill-current text-primary-red" viewBox="0 0 24 24">
+        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+      </svg>
+    ),
   },
 ];
 
@@ -136,6 +172,35 @@ export default function Contact() {
                 </div>
               </motion.div>
             </div>
+
+            {/* Official Social Media Channels */}
+            <motion.div variants={itemVariants} className="mt-4">
+              <h4 className="font-heading text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">
+                Official Media & Stores
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {socialCards.map((sc, idx) => (
+                  <a
+                    key={idx}
+                    href={sc.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group bg-[#141414]/90 border border-white/5 p-4 rounded-xl flex flex-col justify-between hover:border-primary-red/40 transition-all duration-300"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-surface border border-white/5 group-hover:border-primary-red/30 transition-colors">
+                        {sc.icon}
+                      </div>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-primary-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
+                    <div>
+                      <h5 className="font-heading text-xs font-bold text-white uppercase">{sc.name}</h5>
+                      <p className="font-body text-[11px] text-neutral-400 truncate mt-0.5">{sc.handle}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
 
           {/* Right Column: Google Maps Embed */}
@@ -144,11 +209,11 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="lg:col-span-6 h-[400px] lg:h-auto rounded-2xl overflow-hidden border border-white/5 shadow-2xl relative bg-[#141414]"
+            className="lg:col-span-6 h-[400px] lg:h-auto min-h-[450px] rounded-2xl overflow-hidden border border-white/5 shadow-2xl relative bg-[#141414]"
           >
             <iframe
               title="KG Auto Electronics Google Maps Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.7057507616837!2d-1.9427139!3d52.5025658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bd003aefa28b%3A0xa3aa99b985d9c3b5!2sKG%20Auto%20Electronics%20BRUM%20Ltd!5e0!3m2!1sen!2sng!4v1764202326728!5m2!1sen!2sng"
+              src="https://maps.google.com/maps?q=18%20Halliwell%20Avenue%20Oldham%20OL8%203DL&t=&z=15&ie=UTF8&iwloc=&output=embed"
               className="absolute inset-0 w-full h-full border-0 filter invert grayscale opacity-80 hover:opacity-100 transition-opacity duration-300"
               allowFullScreen
               loading="lazy"

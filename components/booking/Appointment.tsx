@@ -66,7 +66,7 @@ export default function Appointment() {
         <Heading
           badge="Secure Booking"
           title="Schedule Your Diagnostics & Repair"
-          subtitle="Reserve a local drive-in repair slot in Birmingham or pre-register your mail-in module. Our technical team will follow up instantly."
+          subtitle="Reserve a local drive-in repair slot in Oldham or pre-register your mail-in module. Our technical team will follow up instantly."
         />
 
         <div className="relative glass-card rounded-2xl p-8 sm:p-12 border border-white/5 bg-[#090909]/60 shadow-2xl">
@@ -123,7 +123,7 @@ export default function Appointment() {
                     id="phone"
                     type="tel"
                     {...register("phone")}
-                    placeholder="e.g. 07886480622"
+                    placeholder="e.g. 07305330916"
                     className="w-full bg-[#141414] border border-white/5 text-sm text-white px-5 py-3.5 rounded-xl outline-none focus:border-primary-red/50 transition-colors font-body"
                   />
                   {errors.phone && (

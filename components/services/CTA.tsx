@@ -13,11 +13,11 @@ export default function CTA({ onOpenBooking }: CTAProps) {
     const text = encodeURIComponent(
       "Hello KG Auto Electronics, I cannot find my specific module repair on your page. Can you assist me with diagnostics and bench repair?"
     );
-    window.open(`https://wa.me/447886480622?text=${text}`, "_blank");
+    window.open(`https://wa.me/447305330916?text=${text}`, "_blank");
   };
 
   const handleCall = () => {
-    window.location.href = "tel:+447886480622";
+    window.location.href = "tel:07305330916";
   };
 
   return (

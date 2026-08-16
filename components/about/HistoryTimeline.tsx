@@ -8,7 +8,7 @@ const timelineEvents = [
   {
     icon: Milestone,
     title: "Workshop Founded",
-    description: "KG Auto Electronics begins operations in Birmingham, focusing on fundamental auto electrical diagnostics.",
+    description: "KG Auto Electronics begins operations in Oldham, focusing on fundamental auto electrical diagnostics.",
   },
   {
     icon: Disc,
@@ -34,7 +34,7 @@ const timelineEvents = [
     icon: Wrench,
     title: "Today",
     subtitle: "Trusted Automotive Electronics Specialists",
-    description: "Recognized as Birmingham's premier electronic diagnostic lab, servicing garages and retail clients across the UK.",
+    description: "Recognized as premier electronic diagnostic lab, servicing garages and retail clients across the UK.",
   },
 ];
 
@@ -118,9 +118,8 @@ export default function HistoryTimeline() {
                     >
                       {/* Node Connection Pointer Line */}
                       <div
-                        className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-4 h-0.5 bg-white/5 group-hover:bg-primary-red/20 transition-colors duration-300 ${
-                          isEven ? "left-full" : "right-full"
-                        }`}
+                        className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-4 h-0.5 bg-white/5 group-hover:bg-primary-red/20 transition-colors duration-300 ${isEven ? "left-full" : "right-full"
+                          }`}
                       />
 
                       {/* Header details */}
@@ -129,7 +128,7 @@ export default function HistoryTimeline() {
                           {event.subtitle}
                         </span>
                       )}
-                      
+
                       <h3 className="font-heading text-lg md:text-xl font-black text-white uppercase tracking-wide group-hover:text-primary-red transition-colors duration-300">
                         {event.title}
                       </h3>

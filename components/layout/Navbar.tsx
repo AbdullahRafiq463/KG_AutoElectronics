@@ -211,13 +211,13 @@ export default function Navbar() {
           {/* Right CTA */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="https://wa.me/447886480622"
+              href="https://wa.me/447305330916"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 text-xs font-semibold text-muted-text hover:text-white transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-primary-red animate-pulse" />
-              07886 480622
+              0730 5330916
             </a>
             <Button
               variant="outline"
@@ -298,13 +298,13 @@ export default function Navbar() {
             >
               <div className="flex items-center justify-start gap-4 py-1">
                 <a
-                  href="https://wa.me/447886480622"
+                  href="https://wa.me/447305330916"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-3 font-heading text-lg font-bold text-white uppercase hover:text-primary-red transition-colors"
                 >
                   <Phone className="w-5 h-5 text-primary-red" />
-                  Call: 07886 480622
+                  Call: 0730 5330916
                 </a>
               </div>
               <Button

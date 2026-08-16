@@ -8,7 +8,7 @@ import { Heading } from "@/components/ui/heading";
 const faqItems = [
   {
     q: "Can I mail my electronic module to your lab for repair?",
-    a: "Yes! Our mail-in repair service is highly popular across the UK. Simply book your repair online, wrap your module securely in bubble wrap, and ship it to our Birmingham address. We inspect, rebuild, test, and ship it back via tracked courier within 24-48 hours.",
+    a: "Yes! Our mail-in repair service is highly popular across the UK. Simply book your repair online, wrap your module securely in bubble wrap, and ship it to our Oldham address. We inspect, rebuild, test, and ship it back via tracked courier within 24-48 hours.",
   },
   {
     q: "Do you offer a guarantee on repairs?",

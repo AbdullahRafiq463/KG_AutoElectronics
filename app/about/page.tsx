@@ -10,10 +10,10 @@ import Footer from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: "About Us | KG Auto Electronics - Precision Rebuild Specialists",
   description:
-    "Learn about KG Auto Electronics, Birmingham's premier luxury automotive diagnostics and module restoration lab. Specializing in clock springs, clusters, ECUs, ABS modules, and custom LED circuits.",
+    "Learn about KG Auto Electronics, Oldham's premier luxury automotive diagnostics and module restoration lab. Specializing in clock springs, clusters, ECUs, ABS modules, and custom LED circuits.",
   keywords: [
     "about kg auto electronics",
-    "birmingham auto electronics specialists",
+    "oldham auto electronics specialists",
     "ahmad raza founder",
     "umer shahid lead engineer",
     "european automotive diagnostics uk",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Us | KG Auto Electronics",
     description:
-      "Pinpoint micro-soldering repairs and programming for luxury vehicles in Birmingham, UK. Meet our expert engineering team.",
+      "Pinpoint micro-soldering repairs and programming for luxury vehicles in Oldham, UK. Meet our expert engineering team.",
     url: "https://kgautoelectronics.com/about",
     type: "website",
   },

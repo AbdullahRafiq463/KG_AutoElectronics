@@ -159,7 +159,7 @@ export default function TeamOrbit() {
               <div className="relative w-full h-full rounded-full overflow-hidden bg-neutral-900">
                 <Image
                   src="/images/team/owner.png"
-                  alt="Ahmad Raza - Founder & Director"
+                  alt="Umer Shahid - Founder & Director"
                   fill
                   sizes="(max-width: 768px) 110px, 180px"
                   className="object-cover scale-105"
@@ -171,7 +171,7 @@ export default function TeamOrbit() {
             {/* Center Owner Designation Glass Badge */}
             <div className="mt-4 px-4 py-1.5 glass rounded-full border border-primary-red/30 shadow-[0_5px_15px_rgba(0,0,0,0.4)] text-center max-w-[130px] md:max-w-none">
               <p className="font-heading text-[10px] md:text-xs font-black text-white uppercase tracking-wider leading-none">
-                Ahmad Raza
+                Umer Shahid
               </p>
               <p className="font-body text-[8px] md:text-[9px] text-primary-red font-semibold uppercase tracking-widest mt-1">
                 Founder & Director
