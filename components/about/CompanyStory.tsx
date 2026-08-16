@@ -5,12 +5,9 @@ import {
   RotateCcw,
   Gauge,
   Zap,
-  Sun,
   Shield,
   Cpu,
   Compass,
-  Car,
-  CheckCircle2,
   Award
 } from "lucide-react";
 import Image from "next/image";
@@ -20,19 +17,9 @@ const expertise = [
   { icon: RotateCcw, label: "Clock Spring Repairs", desc: "Expert rebuilds for slip rings & squib ribbon cables." },
   { icon: Gauge, label: "Instrument Cluster Repairs", desc: "Pixel repair, backlight replacement & gauge calibration." },
   { icon: Zap, label: "LED Tail Light Repairs", desc: "Precision board micro-soldering & logic repairs." },
-  { icon: Sun, label: "Intelligent Headlights", desc: "Control module restoration & LED driver coding." },
-  { icon: Shield, label: "ABS Modules", desc: "Diagnostics and controller rebuilds for brake electronics." },
-  { icon: Cpu, label: "ECU Diagnostics", desc: "In-depth module analysis, flashing and software repair." },
+  { icon: Shield, label: "ABS & Brake Modules", desc: "Diagnostics and controller rebuilds for brake electronics." },
+  { icon: Cpu, label: "ECU & BCM Flashing", desc: "In-depth module analysis, flashing and software repair." },
   { icon: Compass, label: "Steering Electronics", desc: "Angle sensors, modules and column lock repairs." },
-  { icon: Car, label: "Premium Vehicle Electronics", desc: "End-to-end diagnostics for luxury European marques." },
-];
-
-const bulletCards = [
-  { title: "Automotive Electronics Pioneer", text: "Started as a dedicated specialist resolving complex steering column slip ring and ribbon failures." },
-  { title: "Advanced Diagnostics Lab", text: "Expanded into high-precision micro-soldering and module flashing equipment." },
-  { title: "European Car Elite", text: "Trusted key service partner for owners of Audi, BMW, Mercedes, VW, Porsche, and Volvo." },
-  { title: "Proven Track Record", text: "Thousands of successful electronic repairs completed with multi-year warranties." },
-  { title: "R&D Focus", text: "Constantly investing in cutting-edge proprietary flashing tools and logic analyzers." }
 ];
 
 export default function CompanyStory() {
@@ -147,7 +134,7 @@ export default function CompanyStory() {
             </motion.div>
 
             {/* Custom Icon Cards Section (Expertise Grid) */}
-            <div className="mb-14">
+            <div>
               <h4 className="font-heading text-xs font-black text-white uppercase tracking-widest mb-6 pb-2 border-b border-white/5">
                 Our Electronics Domain Expertise
               </h4>
@@ -167,54 +154,20 @@ export default function CompanyStory() {
                       whileHover={{ y: -3, borderColor: "rgba(255, 45, 45, 0.3)" }}
                       className="p-4 bg-surface/40 border border-white/5 rounded-xl transition-all duration-300 group flex items-start gap-4"
                     >
-                      <div className="p-2 rounded-lg bg-white/5 text-primary-red group-hover:bg-primary-red/10 group-hover:text-white transition-colors duration-300">
+                      <div className="p-2.5 rounded-xl bg-white/5 text-primary-red group-hover:bg-primary-red group-hover:text-white transition-colors duration-300 shrink-0">
                         <Icon className="w-5 h-5" />
                       </div>
                       <div>
                         <h5 className="font-heading text-xs font-black text-white uppercase tracking-wide group-hover:text-primary-red transition-colors duration-300">
                           {item.label}
                         </h5>
-                        <p className="font-body text-[11px] text-muted-text mt-1 leading-normal">
+                        <p className="font-body text-[11px] text-muted-text mt-1 leading-relaxed">
                           {item.desc}
                         </p>
                       </div>
                     </motion.div>
                   );
                 })}
-              </motion.div>
-            </div>
-
-            {/* Milestone Elegant Bullet Cards */}
-            <div>
-              <h4 className="font-heading text-xs font-black text-white uppercase tracking-widest mb-6 pb-2 border-b border-white/5">
-                Why Workshop Owners Trust Us
-              </h4>
-              <motion.div
-                variants={listContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                className="flex flex-col gap-4"
-              >
-                {bulletCards.map((bullet, index) => (
-                  <motion.div
-                    key={index}
-                    variants={listItem}
-                    className="p-5 bg-surface/30 border border-white/5 rounded-xl flex items-start gap-4 group hover:bg-surface/50 transition-colors duration-300"
-                  >
-                    <div className="mt-0.5 text-primary-red">
-                      <CheckCircle2 className="w-5 h-5 shrink-0" />
-                    </div>
-                    <div>
-                      <h5 className="font-heading text-xs font-black text-white uppercase tracking-wider">
-                        {bullet.title}
-                      </h5>
-                      <p className="font-body text-[11px] md:text-xs text-muted-text mt-1 leading-relaxed">
-                        {bullet.text}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
               </motion.div>
             </div>
 
