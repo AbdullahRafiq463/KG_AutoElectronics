@@ -32,10 +32,6 @@ const brands: Brand[] = [
 export default function TrustBar() {
   return (
     <section className="bg-[#0a0a0a] py-10 border-y border-white/5 overflow-hidden relative w-full select-none">
-      {/* Left & Right Edge Fades for Smooth Infinite Ribbon */}
-      <div className="absolute top-0 left-0 w-24 md:w-44 h-full bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-20 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-24 md:w-44 h-full bg-gradient-to-l from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-20 pointer-events-none" />
-
       {/* Centered Heading */}
       <div className="max-w-7xl mx-auto px-6 mb-8 text-center relative z-10 flex flex-col items-center">
 
