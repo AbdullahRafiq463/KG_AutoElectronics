@@ -3,8 +3,7 @@ import Hero from "@/components/hero/Hero";
 import TrustBar from "@/components/common/TrustBar";
 import Services from "@/components/services/Services";
 import AboutPreview from "@/components/about/AboutPreview";
-import WhyChooseUs from "@/components/why-us/WhyChooseUs";
-import Process from "@/components/process/Process";
+import HomeFeatureTeaser from "@/components/home/HomeFeatureTeaser";
 import Gallery from "@/components/gallery/Gallery";
 import BeforeAfter from "@/components/before-after/BeforeAfter";
 import Testimonials from "@/components/testimonials/Testimonials";
@@ -22,8 +21,7 @@ export default function Home() {
         <TrustBar />
         <Services />
         <AboutPreview />
-        <WhyChooseUs />
-        <Process />
+        <HomeFeatureTeaser />
         <Gallery />
         <BeforeAfter />
         <Testimonials />

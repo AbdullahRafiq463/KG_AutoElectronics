@@ -11,8 +11,8 @@ const navItems = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
-  { label: "Why Us", href: "#why-us" },
-  { label: "Process", href: "#process" },
+  { label: "Why Us", href: "/why-us" },
+  { label: "Process", href: "/process" },
   { label: "Gallery", href: "#gallery" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "FAQs", href: "#faqs" },
@@ -32,6 +32,10 @@ export default function Navbar() {
         setActiveSection("/about");
       } else if (pathname === "/services") {
         setActiveSection("/services");
+      } else if (pathname === "/why-us") {
+        setActiveSection("/why-us");
+      } else if (pathname === "/process") {
+        setActiveSection("/process");
       } else {
         setActiveSection("");
       }
@@ -93,20 +97,11 @@ export default function Navbar() {
     e.preventDefault();
     setIsOpen(false);
 
-    if (href === "/services") {
-      if (pathname === "/services") {
+    if (href.startsWith("/")) {
+      if (pathname === href) {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
-        router.push("/services");
-      }
-      return;
-    }
-
-    if (href === "/about") {
-      if (pathname === "/about") {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        router.push("/about");
+        router.push(href);
       }
       return;
     }

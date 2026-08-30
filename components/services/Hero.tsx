@@ -51,7 +51,7 @@ export default function Hero({ onBrowseClick, onContactClick }: HeroProps) {
       {/* Grid Overlay Textures */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#090909]/40 via-transparent to-[#090909] z-0 pointer-events-none" />
 
-      {/* Floating Animated Accent Particles */}
+      {/* Floating Animated Accent Particles
       <motion.div
         animate={{ y: [-15, 15, -15], rotate: [0, 5, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
@@ -64,9 +64,9 @@ export default function Hero({ onBrowseClick, onContactClick }: HeroProps) {
           <p className="text-xs font-bold font-heading text-white">Dealership Quality</p>
           <p className="text-[10px] text-muted-text">OEM Spec Diagnostics</p>
         </div>
-      </motion.div>
+      </motion.div> */}
 
-      <motion.div
+      {/* <motion.div
         animate={{ y: [15, -15, 15], rotate: [0, -5, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute bottom-28 right-[10%] hidden lg:flex items-center gap-3 glass px-4 py-2.5 rounded-2xl border border-white/10 shadow-2xl backdrop-blur-xl z-10"
@@ -78,7 +78,7 @@ export default function Hero({ onBrowseClick, onContactClick }: HeroProps) {
           <p className="text-xs font-bold font-heading text-white">Advanced Micro-Soldering</p>
           <p className="text-[10px] text-muted-text">Component-Level Fixes</p>
         </div>
-      </motion.div>
+      </motion.div> */}
 
       <div className="max-w-6xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
         {/* Badge */}

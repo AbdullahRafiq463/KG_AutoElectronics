@@ -2,6 +2,7 @@
 
 import { Mail, Phone, MapPin, ShieldCheck } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -125,8 +126,8 @@ export default function Footer() {
               <ShieldCheck className="w-3.5 h-3.5 text-primary-red" />
               <span>OEM Quality Guarantee</span>
             </div>
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
