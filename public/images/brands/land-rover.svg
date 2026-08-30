@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" fill="#ffffff">
+  <ellipse cx="80" cy="40" rx="76" ry="36" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <ellipse cx="80" cy="40" rx="70" ry="30" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="80" y="36" font-family="'Space Grotesk', sans-serif" font-size="19" font-weight="900" text-anchor="middle" fill="#ffffff" letter-spacing="2">LAND</text>
+  <text x="80" y="55" font-family="'Space Grotesk', sans-serif" font-size="19" font-weight="900" text-anchor="middle" fill="#ffffff" letter-spacing="2">ROVER</text>
+</svg>
