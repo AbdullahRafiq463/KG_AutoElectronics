@@ -5,7 +5,6 @@ import ProcessWorkflow from "@/components/process/ProcessWorkflow";
 import Process from "@/components/process/Process";
 import ProcessShippingGuide from "@/components/process/ProcessShippingGuide";
 import Appointment from "@/components/booking/Appointment";
-import Contact from "@/components/contact/Contact";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
@@ -110,7 +109,6 @@ export default function ProcessPage() {
         <Process />
         <ProcessShippingGuide />
         <Appointment />
-        <Contact />
       </main>
       <Footer />
     </>
