@@ -62,14 +62,13 @@ export default function Testimonials() {
         />
       </div>
 
-      {/* Marquee Track Container with Gradient Edge Fades */}
+      {/* Marquee Track Container */}
       <div className="relative w-full overflow-hidden">
-        {/* Left & Right Gradient Overlays for Luxury Edge Blur */}
-        <div className="absolute top-0 bottom-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-[#141414] via-[#141414]/80 to-transparent z-20 pointer-events-none" />
-        <div className="absolute top-0 bottom-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-[#141414] via-[#141414]/80 to-transparent z-20 pointer-events-none" />
-
-        {/* Continuous Horizontal Auto-Scrolling Track */}
-        <div className="animate-marquee flex gap-6 py-4">
+        {/* Continuous Horizontal Auto-Scrolling Track (Slower speed) */}
+        <div
+          className="animate-marquee flex gap-6 py-4"
+          style={{ animationDuration: "55s" }}
+        >
           {duplicatedTestimonials.map((t, idx) => (
             <div
               key={idx}
