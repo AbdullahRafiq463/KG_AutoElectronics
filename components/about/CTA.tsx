@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export default function CTA() {
   const router = useRouter();
-  
+
   // Mouse movement variables for background interaction
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -25,7 +25,7 @@ export default function CTA() {
     >
       {/* Background spotlights */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(255,45,45,0.06)_0%,transparent_70%)] pointer-events-none blur-3xl" />
-      
+
       {/* Interactive mouse follow glow overlay */}
       <div
         className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -38,7 +38,7 @@ export default function CTA() {
       <div className="absolute inset-0 grid-pattern opacity-20 pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
-        
+
         {/* Visual Red Tagline */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

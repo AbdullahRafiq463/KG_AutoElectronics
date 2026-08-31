@@ -290,7 +290,7 @@ export default function Appointment() {
                 <h3 className="font-heading text-2xl sm:text-3xl font-black uppercase tracking-tight text-white mb-3">
                   Appointment Requested
                 </h3>
-                
+
                 <p className="font-body text-sm text-neutral-400 max-w-md leading-relaxed mb-8">
                   Your electronic repair ticket has been registered. An automotive electronics engineer will contact you via WhatsApp / email within 60 minutes to confirm your diagnostic slot or verify your mailing details.
                 </p>

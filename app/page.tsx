@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/hero/Hero";
+import HeroTrustStrip from "@/components/hero/HeroTrustStrip";
 import TrustBar from "@/components/common/TrustBar";
 import Services from "@/components/services/Services";
 import AboutPreview from "@/components/about/AboutPreview";
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1 w-full flex flex-col">
         <Hero />
+        <HeroTrustStrip />
         <TrustBar />
         <Services />
         <AboutPreview />

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "./Hero";
@@ -15,9 +16,24 @@ import FAQ from "./FAQ";
 import { SERVICES_DATA, filterServices, Service } from "@/src/data/services";
 
 export default function ServicesClientPage() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedBrand, setSelectedBrand] = useState("All");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const searchParams = useSearchParams();
+  const initialBrand = searchParams?.get("brand") || "All";
+  const initialCategory = searchParams?.get("category") || "All";
+  const initialSearch = searchParams?.get("search") || "";
+
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
+  const [selectedBrand, setSelectedBrand] = useState(initialBrand);
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+
+  useEffect(() => {
+    const brandParam = searchParams?.get("brand");
+    const categoryParam = searchParams?.get("category");
+    const searchParam = searchParams?.get("search");
+
+    if (brandParam) setSelectedBrand(brandParam);
+    if (categoryParam) setSelectedCategory(categoryParam);
+    if (searchParam) setSearchQuery(searchParam);
+  }, [searchParams]);
 
   const [quickViewService, setQuickViewService] = useState<Service | null>(null);
   const [bookService, setBookService] = useState<Service | null>(null);

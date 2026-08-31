@@ -165,11 +165,11 @@ export default function About() {
                   <span className="font-heading text-xs font-bold text-primary-red bg-primary-red/10 border border-primary-red/20 px-2 py-0.5 rounded-full">
                     {event.year}
                   </span>
-                  
+
                   <h5 className="font-heading text-sm font-bold text-white uppercase mt-2">
                     {event.title}
                   </h5>
-                  
+
                   <p className="font-body text-xs text-muted-text leading-relaxed mt-1">
                     {event.description}
                   </p>

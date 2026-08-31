@@ -31,13 +31,13 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
     const handleMouseMove = (e: React.MouseEvent) => {
       if (!cardRef.current) return;
       const rect = cardRef.current.getBoundingClientRect();
-      
+
       if (tiltEffect) {
         const width = rect.width;
         const height = rect.height;
         const mouseXVal = e.clientX - rect.left;
         const mouseYVal = e.clientY - rect.top;
-        
+
         x.set(mouseXVal / width - 0.5);
         y.set(mouseYVal / height - 0.5);
       }

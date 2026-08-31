@@ -41,7 +41,7 @@ export function Heading({ className, badge, title, subtitle, align = "center", .
           {badge}
         </span>
       )}
-      
+
       <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-white uppercase max-w-4xl">
         {title}
       </h2>

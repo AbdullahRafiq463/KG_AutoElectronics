@@ -76,11 +76,10 @@ export default function ProcessWorkflow() {
           <div className="inline-flex p-1.5 bg-[#141414] border border-white/10 rounded-full backdrop-blur-md">
             <button
               onClick={() => setActiveTab("drive-in")}
-              className={`flex items-center gap-2.5 px-6 py-3 rounded-full font-heading text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                activeTab === "drive-in"
+              className={`flex items-center gap-2.5 px-6 py-3 rounded-full font-heading text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeTab === "drive-in"
                   ? "bg-primary-red text-white shadow-lg shadow-primary-red/25"
                   : "text-neutral-400 hover:text-white"
-              }`}
+                }`}
             >
               <Car className="w-4 h-4" />
               <span>Drive-In Workshop (Oldham)</span>
@@ -88,11 +87,10 @@ export default function ProcessWorkflow() {
 
             <button
               onClick={() => setActiveTab("mail-in")}
-              className={`flex items-center gap-2.5 px-6 py-3 rounded-full font-heading text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                activeTab === "mail-in"
+              className={`flex items-center gap-2.5 px-6 py-3 rounded-full font-heading text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeTab === "mail-in"
                   ? "bg-primary-red text-white shadow-lg shadow-primary-red/25"
                   : "text-neutral-400 hover:text-white"
-              }`}
+                }`}
             >
               <Package className="w-4 h-4" />
               <span>Mail-In Postal Repair (Nationwide)</span>

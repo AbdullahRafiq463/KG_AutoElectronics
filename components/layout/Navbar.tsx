@@ -6,6 +6,7 @@ import { Menu, X, Phone } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "next/navigation";
+import TopTrustBar from "./TopTrustBar";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -138,45 +139,46 @@ export default function Navbar() {
   };
 
   return (
-    <>
+    <header className="fixed top-0 left-0 w-full z-50">
+      <TopTrustBar />
       <motion.nav
-        initial={{ y: -100, opacity: 0 }}
+        initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className={`w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-[#090909]/80 backdrop-blur-md border-b border-white/5 py-4"
-            : "bg-transparent py-6"
+            ? "bg-[#090909]/95 backdrop-blur-md border-b border-white/10 py-3.5 shadow-lg shadow-black/40"
+            : "bg-[#090909]/80 backdrop-blur-sm border-b border-white/5 py-4"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Logo */}
           <a
             href="#home"
             onClick={(e) => handleScrollTo(e, "#home")}
-            className="flex items-center gap-2 group cursor-pointer"
+            className="flex items-center gap-2.5 group cursor-pointer"
           >
-            <div className="relative w-10 h-10 overflow-hidden flex items-center justify-center rounded-full bg-primary-red/10 border border-primary-red/20 group-hover:border-primary-red/50 transition-colors duration-300">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 overflow-hidden flex items-center justify-center rounded-lg bg-primary-red/10 border border-primary-red/30 group-hover:border-primary-red/60 transition-colors duration-300">
               <Image
                 src="/images/logo/kg_logo2.png"
-                alt="KG Auto Logo"
+                alt="KG Auto Electronics Logo"
                 fill
                 sizes="40px"
-                className="object-cover rounded-full p-0.5 group-hover:scale-110 transition-transform duration-300"
+                className="object-cover p-0.5 group-hover:scale-105 transition-transform duration-300"
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-heading font-black tracking-tight text-white uppercase text-lg leading-none">
+              <span className="font-heading font-black tracking-tight text-white uppercase text-base sm:text-lg leading-none">
                 KG AUTO
               </span>
-              <span className="font-body text-[9px] tracking-widest text-primary-red uppercase font-semibold leading-none mt-1">
+              <span className="font-body text-[9px] tracking-widest text-primary-red uppercase font-bold leading-none mt-1">
                 Electronics
               </span>
             </div>
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 bg-[#141414]/40 border border-white/5 rounded-full backdrop-blur-sm">
+          <div className="hidden lg:flex items-center gap-1 px-3 py-1.5 bg-[#141414]/70 border border-white/10 rounded-full backdrop-blur-sm">
             {navItems.map((item) => {
               const isActive = activeSection === item.href;
               return (
@@ -184,8 +186,8 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleScrollTo(e, item.href)}
-                  className={`relative font-body text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors duration-300 group ${
-                    isActive ? "text-white" : "text-muted-text hover:text-white"
+                  className={`relative font-body text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors duration-200 group ${
+                    isActive ? "text-white" : "text-neutral-300 hover:text-white"
                   }`}
                 >
                   <span className="relative z-10">{item.label}</span>
@@ -196,7 +198,7 @@ export default function Navbar() {
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   ) : (
-                    <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary-red transition-all duration-300 group-hover:w-1/2" />
+                    <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary-red transition-all duration-200 group-hover:w-1/2" />
                   )}
                 </a>
               );
@@ -209,15 +211,15 @@ export default function Navbar() {
               href="https://wa.me/447305330916"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 text-xs font-semibold text-muted-text hover:text-white transition-colors"
+              className="flex items-center gap-2 text-xs font-semibold text-neutral-300 hover:text-white transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-primary-red animate-pulse" />
+              <Phone className="w-3.5 h-3.5 text-primary-red" />
               0730 5330916
             </a>
             <Button
               variant="outline"
               size="sm"
-              className="border-[#FF2D2D] text-[#FF2D2D] hover:bg-[#FF2D2D] hover:text-white transition-all duration-300 cursor-pointer"
+              className="border-[#FF2D2D] text-[#FF2D2D] hover:bg-[#FF2D2D] hover:text-white transition-all duration-300 cursor-pointer font-semibold text-xs px-4"
               onClick={(e) => {
                 e.preventDefault();
                 if (pathname !== "/") {
@@ -230,7 +232,7 @@ export default function Navbar() {
                 }
               }}
             >
-              Book Service
+              Book Repair
             </Button>
           </div>
 
@@ -251,11 +253,11 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-[73px] left-0 w-full h-[calc(100vh-73px)] bg-[#090909]/95 backdrop-blur-lg z-40 lg:hidden border-t border-white/5 flex flex-col justify-between py-10 px-6 overflow-y-auto"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25 }}
+            className="w-full h-[calc(100vh-105px)] bg-[#090909]/95 backdrop-blur-xl border-b border-white/10 flex flex-col justify-between py-8 px-6 overflow-y-auto"
           >
             <div className="flex flex-col gap-5">
               {navItems.map((item, idx) => {
@@ -324,6 +326,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </header>
   );
 }

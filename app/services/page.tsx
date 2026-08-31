@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import ServicesClientPage from "@/components/services/ServicesClientPage";
 import { SERVICES_DATA } from "@/src/data/services";
@@ -104,7 +105,9 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
       />
-      <ServicesClientPage />
+      <Suspense fallback={<div className="min-h-screen bg-[#090909]" />}>
+        <ServicesClientPage />
+      </Suspense>
     </>
   );
 }

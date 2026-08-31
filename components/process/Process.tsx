@@ -103,7 +103,7 @@ export default function Process() {
                   <h4 className="font-heading text-lg font-bold text-white uppercase tracking-tight mb-3">
                     {step.title}
                   </h4>
-                  
+
                   <p className="font-body text-xs text-neutral-400 leading-relaxed">
                     {step.description}
                   </p>

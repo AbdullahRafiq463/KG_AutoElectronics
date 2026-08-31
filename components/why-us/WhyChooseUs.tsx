@@ -101,11 +101,11 @@ export default function WhyChooseUs() {
                   <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-surface border border-white/5 mb-6 group-hover:border-primary-red/40 transition-colors duration-300">
                     <Icon className="w-5.5 h-5.5 text-primary-red group-hover:rotate-12 transition-transform duration-300" />
                   </div>
-                  
+
                   <CardTitle className="text-base uppercase font-bold tracking-tight mb-2 group-hover:text-primary-red transition-colors duration-300">
                     {feature.title}
                   </CardTitle>
-                  
+
                   <CardDescription className="text-xs text-neutral-400 leading-relaxed font-body">
                     {feature.description}
                   </CardDescription>

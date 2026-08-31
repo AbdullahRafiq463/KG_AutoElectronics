@@ -78,8 +78,8 @@ export default function Search({ searchQuery, setSearchQuery, totalResults }: Se
           const chipSearchText = chip.startsWith("Part No: ")
             ? chip.replace("Part No: ", "")
             : chip.startsWith("Fault: ")
-            ? chip.replace("Fault: ", "")
-            : chip;
+              ? chip.replace("Fault: ", "")
+              : chip;
 
           const isActive = searchQuery.toLowerCase() === chipSearchText.toLowerCase();
 
@@ -87,11 +87,10 @@ export default function Search({ searchQuery, setSearchQuery, totalResults }: Se
             <button
               key={idx}
               onClick={() => setSearchQuery(isActive ? "" : chipSearchText)}
-              className={`px-3 py-1 rounded-full border text-[11px] font-medium transition-all duration-300 ${
-                isActive
+              className={`px-3 py-1 rounded-full border text-[11px] font-medium transition-all duration-300 ${isActive
                   ? "bg-primary-red border-primary-red text-white shadow-[0_0_12px_rgba(255,45,45,0.4)]"
                   : "bg-surface/50 border-white/10 text-neutral-400 hover:text-white hover:border-primary-red/40 hover:bg-surface"
-              }`}
+                }`}
             >
               {chip}
             </button>
