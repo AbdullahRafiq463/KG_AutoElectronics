@@ -4,7 +4,6 @@ import WhyUsHero from "@/components/why-us/WhyUsHero";
 import WhyChooseUs from "@/components/why-us/WhyChooseUs";
 import WhyUsComparison from "@/components/why-us/WhyUsComparison";
 import WhyUsGuarantees from "@/components/why-us/WhyUsGuarantees";
-import Appointment from "@/components/booking/Appointment";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
@@ -81,7 +80,6 @@ export default function WhyUsPage() {
         <WhyChooseUs />
         <WhyUsComparison />
         <WhyUsGuarantees />
-        <Appointment />
       </main>
       <Footer />
     </>

@@ -4,7 +4,6 @@ import AboutHero from "@/components/about/AboutHero";
 import CompanyStory from "@/components/about/CompanyStory";
 import HistoryTimeline from "@/components/about/HistoryTimeline";
 import TeamOrbit from "@/components/about/TeamOrbit";
-import CTA from "@/components/about/CTA";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
@@ -36,7 +35,6 @@ export default function AboutPage() {
         <CompanyStory />
         <HistoryTimeline />
         <TeamOrbit />
-        <CTA />
       </main>
       <Footer />
     </>
