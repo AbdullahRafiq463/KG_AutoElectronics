@@ -28,41 +28,6 @@ const contactCards = [
   },
 ];
 
-const socialCards = [
-  {
-    name: "TikTok",
-    handle: "@autosrepairs",
-    href: "https://www.tiktok.com/@autosrepairs",
-    actionText: "Follow Channel",
-    icon: (
-      <svg className="w-5 h-5 fill-current text-primary-red" viewBox="0 0 24 24">
-        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.29 0 .56.04.82.12V9.38a6.37 6.37 0 00-4.63 1.07A6.33 6.33 0 003.35 15a6.34 6.34 0 0010.86 4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-.61-.01z" />
-      </svg>
-    ),
-  },
-  {
-    name: "eBay Store",
-    handle: "kgautoelectronics",
-    href: "https://www.ebay.co.uk/usr/kgautoelectronics",
-    actionText: "Browse Store",
-    icon: (
-      <span className="font-heading font-extrabold text-sm text-primary-red tracking-tight">
-        eBay
-      </span>
-    ),
-  },
-  {
-    name: "Facebook",
-    handle: "KG Auto Electronics Ltd",
-    href: "https://www.facebook.com/p/KG-Auto-Electronics-Ltd-100083765344316/",
-    actionText: "Visit Page",
-    icon: (
-      <svg className="w-5 h-5 fill-current text-primary-red" viewBox="0 0 24 24">
-        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-      </svg>
-    ),
-  },
-];
 
 const hours = [
   { day: "Mon - Sat", time: "09:00 - 18:00" },
@@ -100,14 +65,14 @@ export default function Contact() {
           subtitle="Ready to fix your automotive electronic failures? Visit our workshop, chat on WhatsApp, or send an email."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left Column: Contact Cards & Hours */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-6 flex flex-col justify-between gap-6"
+            className="lg:col-span-6"
           >
             {/* Direct Contact Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -163,7 +128,7 @@ export default function Contact() {
                   {hours.map((h, idx) => (
                     <div key={idx} className="flex justify-between items-center text-xs font-body">
                       <span className="text-neutral-400">{h.day}</span>
-                      <span className={h.time === "Closed" ? "text-primary-red font-bold" : "text-white"}>
+                      <span className="text-white">
                         {h.time}
                       </span>
                     </div>
@@ -171,35 +136,6 @@ export default function Contact() {
                 </div>
               </motion.div>
             </div>
-
-            {/* Official Social Media Channels */}
-            <motion.div variants={itemVariants} className="mt-2">
-              <h4 className="font-heading text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3">
-                Official Media & Stores
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {socialCards.map((sc, idx) => (
-                  <a
-                    key={idx}
-                    href={sc.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group bg-[#141414]/90 border border-white/5 hover:border-primary-red/40 p-3 rounded-xl flex items-center justify-between gap-3 transition-all duration-300"
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-lg bg-surface border border-white/5 group-hover:border-primary-red/30 transition-colors">
-                        {sc.icon}
-                      </div>
-                      <div className="min-w-0">
-                        <h5 className="font-heading text-xs font-bold text-white uppercase truncate">{sc.name}</h5>
-                        <p className="font-body text-[11px] text-neutral-400 truncate">{sc.handle}</p>
-                      </div>
-                    </div>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-primary-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0" />
-                  </a>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Right Column: Google Maps Embed */}
@@ -208,7 +144,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="lg:col-span-6 h-[380px] lg:h-auto min-h-[380px] rounded-2xl overflow-hidden border border-white/5 shadow-2xl relative bg-[#141414]"
+            className="lg:col-span-6 h-[300px] lg:h-auto min-h-[290px] rounded-2xl overflow-hidden border border-white/5 shadow-2xl relative bg-[#141414]"
           >
             <iframe
               title="KG Auto Electronics Google Maps Location"
