@@ -6,8 +6,6 @@ import { Image as ImageIcon, X, ZoomIn, Eye } from "lucide-react";
 import Image from "next/image";
 import { Heading } from "@/components/ui/heading";
 
-const categories = ["All", "Workshop", "Electronics", "Diagnostics", "Repairs", "Completed Vehicles"];
-
 const galleryItems = [
   {
     title: "Steering Angle Sensor Calibration",
@@ -48,12 +46,7 @@ const galleryItems = [
 ];
 
 export default function Gallery() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeImage, setActiveImage] = useState<typeof galleryItems[0] | null>(null);
-
-  const filteredItems = selectedCategory === "All"
-    ? galleryItems
-    : galleryItems.filter((item) => item.category === selectedCategory);
 
   return (
     <section id="gallery" className="relative py-24 bg-[#090909] overflow-hidden">
@@ -68,29 +61,13 @@ export default function Gallery() {
           subtitle="Explore visual summaries of our micro-electronics repair runs, diagnostic sweeps, and premium completed vehicles."
         />
 
-        {/* Categories filters */}
-        <div className="flex flex-wrap justify-center items-center gap-2 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={`px-4.5 py-2 text-xs font-semibold rounded-full uppercase tracking-wider transition-all duration-300 border cursor-pointer ${selectedCategory === category
-                ? "bg-[#FF2D2D] border-primary-red text-white shadow-[0_0_15px_rgba(255,45,45,0.3)]"
-                : "bg-surface border-white/5 text-muted-text hover:text-white hover:border-neutral-700"
-                }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
         {/* Gallery Grid */}
         <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, idx) => (
+            {galleryItems.map((item) => (
               <motion.div
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}

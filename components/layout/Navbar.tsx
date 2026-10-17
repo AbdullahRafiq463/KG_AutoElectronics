@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "next/navigation";
@@ -26,6 +26,18 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
+
+  // Lock background scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     if (pathname !== "/") {
@@ -256,57 +268,66 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
-            className="w-full h-[calc(100vh-105px)] bg-[#090909]/95 backdrop-blur-xl border-b border-white/10 flex flex-col justify-between py-8 px-6 overflow-y-auto"
+            transition={{ duration: 0.2 }}
+            className="w-full max-h-[calc(100dvh-5.5rem)] bg-[#090909]/98 backdrop-blur-2xl border-b border-white/10 flex flex-col justify-between py-3 px-4 sm:px-6 overflow-y-auto shadow-2xl"
           >
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-1">
               {navItems.map((item, idx) => {
                 const isActive = activeSection === item.href;
                 return (
                   <motion.a
                     key={item.href}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.05 }}
+                    transition={{ delay: idx * 0.02, duration: 0.15 }}
                     href={item.href}
                     onClick={(e) => handleScrollTo(e, item.href)}
-                    className={`font-heading text-2xl font-bold tracking-tight uppercase py-2 transition-colors relative flex items-center gap-3 ${
-                      isActive ? "text-primary-red" : "text-white hover:text-primary-red"
+                    className={`font-heading text-sm font-bold tracking-wider uppercase px-3 py-1.5 sm:py-2 rounded-lg transition-all duration-200 flex items-center justify-between group ${
+                      isActive
+                        ? "text-primary-red bg-primary-red/10 border border-primary-red/25"
+                        : "text-neutral-300 hover:text-white hover:bg-white/[0.04] border border-transparent"
                     }`}
                   >
-                    {isActive && (
-                      <motion.span
-                        layoutId="activeMobileDot"
-                        className="w-1.5 h-1.5 rounded-full bg-primary-red shrink-0"
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    <div className="flex items-center gap-2.5">
+                      <span
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-200 shrink-0 ${
+                          isActive
+                            ? "bg-primary-red shadow-[0_0_8px_#ff2d2d]"
+                            : "bg-neutral-600 group-hover:bg-neutral-400"
+                        }`}
                       />
-                    )}
-                    <span>{item.label}</span>
+                      <span>{item.label}</span>
+                    </div>
+                    <ChevronRight
+                      className={`w-3.5 h-3.5 transition-transform duration-200 shrink-0 ${
+                        isActive
+                          ? "text-primary-red"
+                          : "text-neutral-600 group-hover:text-neutral-300 group-hover:translate-x-0.5"
+                      }`}
+                    />
                   </motion.a>
                 );
               })}
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-col gap-4 border-t border-white/5 pt-8"
+              transition={{ delay: 0.18, duration: 0.2 }}
+              className="grid grid-cols-2 gap-2.5 pt-2.5 border-t border-white/10 mt-2 shrink-0"
             >
-              <div className="flex items-center justify-start gap-4 py-1">
-                <a
-                  href="https://wa.me/447305330916"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 font-heading text-lg font-bold text-white uppercase hover:text-primary-red transition-colors"
-                >
-                  <Phone className="w-5 h-5 text-primary-red" />
-                  Call: 0730 5330916
-                </a>
-              </div>
+              <a
+                href="https://wa.me/447305330916"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 py-2.5 px-2 rounded-xl bg-white/[0.04] border border-white/10 text-white font-heading text-xs font-bold uppercase tracking-wider hover:bg-white/[0.08] hover:border-white/20 transition-all text-center"
+              >
+                <Phone className="w-3.5 h-3.5 text-primary-red shrink-0" />
+                <span className="truncate">0730 5330916</span>
+              </a>
               <Button
                 variant="primary"
-                className="w-full text-center py-4 text-base cursor-pointer"
+                className="w-full py-2.5 px-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider cursor-pointer shadow-[0_0_15px_rgba(255,45,45,0.25)]"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsOpen(false);
@@ -320,7 +341,7 @@ export default function Navbar() {
                   }
                 }}
               >
-                Schedule Appointment
+                Book Repair
               </Button>
             </motion.div>
           </motion.div>
