@@ -3,6 +3,7 @@
 import { Mail, Phone, MapPin, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { GoogleIcon, EbayIcon, FacebookIcon, TikTokIcon, YouTubeIcon } from "@/components/common/BrandIcons";
 
 export default function Footer() {
   return (
@@ -15,7 +16,7 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6 pb-6 border-b border-white/10">
           {/* Brand Logo & Tagline */}
           <div className="flex items-center gap-3">
-            <a href="/" className="flex items-center gap-2.5 group">
+            <Link href="/" className="flex items-center gap-2.5 group">
               <div className="relative w-9 h-9 overflow-hidden flex items-center justify-center rounded-xl bg-primary-red/10 border border-primary-red/30 group-hover:border-primary-red transition-colors duration-300">
                 <Image
                   src="/images/logo/fav_icon.png"
@@ -33,7 +34,7 @@ export default function Footer() {
                   Electronics
                 </span>
               </div>
-            </a>
+            </Link>
             <span className="hidden sm:inline text-neutral-700">|</span>
             <p className="hidden sm:block font-body text-xs text-neutral-400">
               Prestige Automotive Electronics & Hardware Diagnostics
@@ -73,18 +74,16 @@ export default function Footer() {
           <span className="text-neutral-400 font-heading uppercase text-[11px] font-bold tracking-wider">
             Official Media & Stores:
           </span>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
             <a
-              href="https://www.tiktok.com/@autosrepairs"
+              href="https://www.youtube.com/@KGAutoElectronics"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface border border-white/10 text-neutral-300 hover:text-white hover:border-primary-red/50 transition-all duration-300"
-              aria-label="TikTok Account"
+              aria-label="YouTube"
             >
-              <svg className="w-4 h-4 fill-current text-primary-red" viewBox="0 0 24 24">
-                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64c.29 0 .56.04.82.12V9.38a6.37 6.37 0 00-4.63 1.07A6.33 6.33 0 003.35 15a6.34 6.34 0 0010.86 4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-.61-.01z" />
-              </svg>
-              <span className="font-semibold text-xs">TikTok</span>
+              <YouTubeIcon className="w-4 h-4" />
+              <span className="font-semibold text-xs">YouTube</span>
             </a>
 
             <a
@@ -94,10 +93,8 @@ export default function Footer() {
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface border border-white/10 text-neutral-300 hover:text-white hover:border-primary-red/50 transition-all duration-300"
               aria-label="eBay Shop"
             >
-              <span className="font-heading font-extrabold text-xs text-primary-red tracking-tight">
-                eBay
-              </span>
-              <span className="font-semibold text-xs">Store</span>
+              <EbayIcon className="w-5 h-3.5" />
+              <span className="font-semibold text-xs">eBay Store</span>
             </a>
 
             <a
@@ -107,10 +104,19 @@ export default function Footer() {
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface border border-white/10 text-neutral-300 hover:text-white hover:border-primary-red/50 transition-all duration-300"
               aria-label="Facebook Page"
             >
-              <svg className="w-4 h-4 fill-current text-primary-red" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
+              <FacebookIcon className="w-4 h-4" />
               <span className="font-semibold text-xs">Facebook</span>
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@autosrepairs"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface border border-white/10 text-neutral-300 hover:text-white hover:border-primary-red/50 transition-all duration-300"
+              aria-label="TikTok Account"
+            >
+              <TikTokIcon className="w-4 h-4" />
+              <span className="font-semibold text-xs">TikTok</span>
             </a>
           </div>
         </div>
