@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { ChevronDown, HelpCircle, ShieldCheck, Clock, PackageCheck, Car, CalendarCheck } from "lucide-react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { Heading } from "@/components/ui/heading";
