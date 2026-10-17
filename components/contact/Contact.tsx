@@ -65,12 +65,7 @@ const socialCards = [
 ];
 
 const hours = [
-  { day: "Monday", time: "09:00 - 18:00" },
-  { day: "Tuesday", time: "09:00 - 18:00" },
-  { day: "Wednesday", time: "09:00 - 18:00" },
-  { day: "Thursday", time: "09:00 - 18:00" },
-  { day: "Friday", time: "09:00 - 18:00" },
-  { day: "Saturday", time: "09:00 - 14:00" },
+  { day: "Mon - Sat", time: "09:00 - 18:00" },
   { day: "Sunday", time: "Closed" },
 ];
 
@@ -105,17 +100,17 @@ export default function Contact() {
           subtitle="Ready to fix your automotive electronic failures? Visit our workshop, chat on WhatsApp, or send an email."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
           {/* Left Column: Contact Cards & Hours */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="lg:col-span-6 flex flex-col gap-8"
+            className="lg:col-span-6 flex flex-col justify-between gap-6"
           >
             {/* Direct Contact Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {contactCards.map((card, idx) => {
                 const Icon = card.icon;
                 return (
@@ -125,22 +120,24 @@ export default function Contact() {
                     href={card.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group bg-[#141414]/80 border border-white/5 p-6 rounded-2xl flex flex-col justify-between hover:border-primary-red/30 transition-all duration-300 relative overflow-hidden"
+                    className="group bg-[#141414]/90 border border-white/5 hover:border-primary-red/30 p-4 rounded-xl flex flex-col justify-between gap-3 transition-all duration-300 relative overflow-hidden"
                   >
-                    <div>
-                      <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-surface border border-white/5 mb-4 group-hover:border-primary-red/40 transition-colors">
-                        <Icon className="w-5 h-5 text-primary-red" />
+                    {/* Title in front of the icon in a row */}
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-lg bg-surface border border-white/5 group-hover:border-primary-red/40 transition-colors">
+                        <Icon className="w-4.5 h-4.5 text-primary-red" />
                       </div>
-                      <h4 className="font-heading text-xs font-bold text-white uppercase tracking-wider mb-2">
+                      <h4 className="font-heading text-xs font-bold text-white uppercase tracking-wider">
                         {card.title}
                       </h4>
-                      <p className="font-body text-xs text-neutral-400 leading-relaxed max-w-[200px]">
-                        {card.value}
-                      </p>
                     </div>
 
-                    <div className="flex items-center gap-1 text-[11px] font-heading font-bold uppercase tracking-wider text-white group-hover:text-primary-red transition-colors pt-6 mt-auto">
-                      {card.actionText}
+                    <p className="font-body text-xs text-neutral-400 leading-relaxed">
+                      {card.value}
+                    </p>
+
+                    <div className="flex items-center gap-1 text-[11px] font-heading font-bold uppercase tracking-wider text-white group-hover:text-primary-red transition-colors">
+                      <span>{card.actionText}</span>
                       <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                   </motion.a>
@@ -150,17 +147,19 @@ export default function Contact() {
               {/* Working Hours */}
               <motion.div
                 variants={itemVariants}
-                className="bg-[#141414]/80 border border-white/5 p-6 rounded-2xl flex flex-col"
+                className="bg-[#141414]/90 border border-white/5 p-4 rounded-xl flex flex-col justify-between gap-3"
               >
-                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-surface border border-white/5 mb-4">
-                  <Clock className="w-5 h-5 text-primary-red" />
+                {/* Title in front of the icon in a row */}
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 flex-shrink-0 flex items-center justify-center rounded-lg bg-surface border border-white/5">
+                    <Clock className="w-4.5 h-4.5 text-primary-red" />
+                  </div>
+                  <h4 className="font-heading text-xs font-bold text-white uppercase tracking-wider">
+                    Opening Hours
+                  </h4>
                 </div>
 
-                <h4 className="font-heading text-xs font-bold text-white uppercase tracking-wider mb-4">
-                  Opening Hours
-                </h4>
-
-                <div className="flex flex-col gap-2 w-full">
+                <div className="flex flex-col gap-1.5 w-full">
                   {hours.map((h, idx) => (
                     <div key={idx} className="flex justify-between items-center text-xs font-body">
                       <span className="text-neutral-400">{h.day}</span>
@@ -174,29 +173,29 @@ export default function Contact() {
             </div>
 
             {/* Official Social Media Channels */}
-            <motion.div variants={itemVariants} className="mt-4">
-              <h4 className="font-heading text-xs font-bold text-neutral-400 uppercase tracking-widest mb-4">
+            <motion.div variants={itemVariants} className="mt-2">
+              <h4 className="font-heading text-xs font-bold text-neutral-400 uppercase tracking-widest mb-3">
                 Official Media & Stores
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {socialCards.map((sc, idx) => (
                   <a
                     key={idx}
                     href={sc.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="group bg-[#141414]/90 border border-white/5 p-4 rounded-xl flex flex-col justify-between hover:border-primary-red/40 transition-all duration-300"
+                    className="group bg-[#141414]/90 border border-white/5 hover:border-primary-red/40 p-3 rounded-xl flex items-center justify-between gap-3 transition-all duration-300"
                   >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-15 h-8 flex items-center justify-center rounded-lg bg-surface border border-white/5 group-hover:border-primary-red/30 transition-colors">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-lg bg-surface border border-white/5 group-hover:border-primary-red/30 transition-colors">
                         {sc.icon}
                       </div>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-primary-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                      <div className="min-w-0">
+                        <h5 className="font-heading text-xs font-bold text-white uppercase truncate">{sc.name}</h5>
+                        <p className="font-body text-[11px] text-neutral-400 truncate">{sc.handle}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h5 className="font-heading text-xs font-bold text-white uppercase">{sc.name}</h5>
-                      <p className="font-body text-[11px] text-neutral-400 truncate mt-0.5">{sc.handle}</p>
-                    </div>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400 group-hover:text-primary-red group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0" />
                   </a>
                 ))}
               </div>
@@ -209,7 +208,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true }}
-            className="lg:col-span-6 h-[400px] lg:h-auto min-h-[450px] rounded-2xl overflow-hidden border border-white/5 shadow-2xl relative bg-[#141414]"
+            className="lg:col-span-6 h-[380px] lg:h-auto min-h-[380px] rounded-2xl overflow-hidden border border-white/5 shadow-2xl relative bg-[#141414]"
           >
             <iframe
               title="KG Auto Electronics Google Maps Location"
