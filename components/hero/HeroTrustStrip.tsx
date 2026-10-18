@@ -9,7 +9,7 @@ const stats = [
     icon: Gauge,
     value: 10,
     suffix: "+",
-    label: "Years Specialist Experience",
+    label: "Years Experience",
     subtext: "Micro-soldering & diagnostics",
   },
   {
