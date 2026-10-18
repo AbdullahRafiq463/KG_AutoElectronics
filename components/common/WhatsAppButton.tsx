@@ -24,7 +24,7 @@ export default function WhatsAppButton() {
       initial={{ scale: 0, opacity: 0, y: 50 }}
       animate={isVisible ? { scale: 1, opacity: 1, y: 0 } : { scale: 0, opacity: 0, y: 50 }}
       transition={{ type: "spring", stiffness: 260, damping: 20 }}
-      className="fixed bottom-6 right-6 z-50 group"
+      className="fixed bottom-6 right-6 z-40 group"
     >
       {/* Outer pulsing ring for eye-catching attraction */}
       <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-35 animate-[ping_2s_infinite] pointer-events-none" />

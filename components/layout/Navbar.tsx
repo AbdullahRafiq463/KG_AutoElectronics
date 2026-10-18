@@ -27,15 +27,24 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
 
-  // Lock background scroll when mobile menu is open
+  // Lock background scroll and blur background when mobile menu is open
   useEffect(() => {
+    const mainEl = document.querySelector("main");
+    const footerEl = document.querySelector("footer");
+
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      mainEl?.classList.add("blur-sm", "transition-[filter]", "duration-300");
+      footerEl?.classList.add("blur-sm", "transition-[filter]", "duration-300");
     } else {
       document.body.style.overflow = "";
+      mainEl?.classList.remove("blur-sm");
+      footerEl?.classList.remove("blur-sm");
     }
     return () => {
       document.body.style.overflow = "";
+      mainEl?.classList.remove("blur-sm");
+      footerEl?.classList.remove("blur-sm");
     };
   }, [isOpen]);
 
@@ -261,15 +270,32 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
+      {/* Mobile Full-Screen Backdrop Overlay with Blur */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            key="mobile-nav-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 top-0 left-0 w-screen h-[100dvh] bg-black/65 backdrop-blur-md -z-10 lg:hidden cursor-pointer"
+            aria-hidden="true"
+          />
+        )}
+      </AnimatePresence>
+
       {/* Mobile Menu Drawer */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            key="mobile-nav-drawer"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="w-full max-h-[calc(100dvh-5.5rem)] bg-[#090909]/98 backdrop-blur-2xl border-b border-white/10 flex flex-col justify-between py-3 px-4 sm:px-6 overflow-y-auto shadow-2xl"
+            className="w-full max-h-[calc(100dvh-5.5rem)] bg-[#090909]/92 backdrop-blur-2xl border-b border-white/10 flex flex-col justify-between py-3 px-4 sm:px-6 overflow-y-auto shadow-2xl relative z-10"
           >
             <div className="flex flex-col gap-1">
               {navItems.map((item, idx) => {
