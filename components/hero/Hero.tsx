@@ -54,12 +54,12 @@ export default function Hero() {
 
           </motion.h1>
 
-          {/* Supporting Paragraph */}
+          {/* Supporting Paragraph - Hidden on mobile for cleaner, uncluttered opening */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="font-body text-sm sm:text-base text-neutral-300 leading-relaxed mb-4 max-w-xl"
+            className="hidden sm:block font-body text-sm sm:text-base text-neutral-300 leading-relaxed mb-4 max-w-xl"
           >
             Professional diagnostics and component-level repairs for instrument clusters, ECUs,
             ABS modules, clock springs, LED units and complex automotive electronics across leading

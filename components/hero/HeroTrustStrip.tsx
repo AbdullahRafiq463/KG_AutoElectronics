@@ -47,19 +47,23 @@ export default function HeroTrustStrip() {
   return (
     <section className="w-full bg-[#0d0d0d] border-y border-white/[0.08] relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-7">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6 divide-y sm:divide-y-0 divide-white/5 sm:divide-x sm:divide-white/10">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-x-4 sm:gap-x-6 lg:gap-6">
           {stats.map((item, idx) => {
             const Icon = item.icon;
-            const content = (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className={`flex flex-col items-center sm:items-start text-center sm:text-left ${idx > 0 ? "pt-4 sm:pt-0 sm:pl-4 lg:pl-6" : ""
-                  } ${idx === 4 ? "col-span-2 sm:col-span-1" : ""}`}
-              >
+            const isRow2 = idx === 2 || idx === 3;
+            const isRow3 = idx === 4;
+            const isNotFirstColLg = idx > 0;
+
+            const cellClasses = `flex flex-col items-center lg:items-start text-center lg:text-left ${
+              isRow2 ? "pt-4 border-t border-white/5 lg:pt-0 lg:border-t-0" : ""
+            } ${
+              isRow3 ? "col-span-2 lg:col-span-1 pt-4 border-t border-white/5 lg:pt-0 lg:border-t-0" : ""
+            } ${
+              isNotFirstColLg ? "lg:border-l lg:border-white/10 lg:pl-6" : ""
+            }`;
+
+            const innerContent = (
+              <>
                 <div className="flex items-center gap-2 mb-1.5">
                   <div className="w-6 h-6 rounded bg-primary-red/10 border border-primary-red/20 flex items-center justify-center shrink-0">
                     <Icon className="w-3.5 h-3.5 text-primary-red" />
@@ -85,24 +89,32 @@ export default function HeroTrustStrip() {
                 <p className="font-body text-[10px] text-neutral-400 mt-0.5 leading-normal">
                   {item.subtext}
                 </p>
-              </motion.div>
+              </>
             );
 
-            if (item.link) {
-              return (
-                <a
-                  key={idx}
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:opacity-90 transition-opacity block group"
-                >
-                  {content}
-                </a>
-              );
-            }
-
-            return content;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className={cellClasses}
+              >
+                {item.link ? (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-90 transition-opacity flex flex-col items-center lg:items-start text-center lg:text-left group"
+                  >
+                    {innerContent}
+                  </a>
+                ) : (
+                  innerContent
+                )}
+              </motion.div>
+            );
           })}
         </div>
       </div>
