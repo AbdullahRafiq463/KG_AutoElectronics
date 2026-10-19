@@ -7,7 +7,7 @@ import { Heading } from "@/components/ui/heading";
 const contactCards = [
   {
     icon: Phone,
-    title: "Direct WhatsApp Line",
+    title: "WhatsApp Line",
     value: "0730 5330916",
     href: "https://wa.me/447305330916",
     actionText: "Chat Now",
@@ -21,7 +21,7 @@ const contactCards = [
   },
   {
     icon: MapPin,
-    title: "Oldham Lab Location",
+    title: "Lab Location",
     value: "KG Auto Electronics, 18 Halliwell Avenue Oldham, OL8 3DL",
     href: "https://maps.google.com/?q=18+Halliwell+Avenue+Oldham+OL8+3DL",
     actionText: "Get Directions",
