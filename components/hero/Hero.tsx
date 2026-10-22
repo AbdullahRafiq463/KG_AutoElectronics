@@ -54,7 +54,17 @@ export default function Hero() {
 
           </motion.h1>
 
-          {/* Supporting Paragraph - Hidden on mobile for cleaner, uncluttered opening */}
+          {/* Mobile Description: Concise, attractive 2-liner */}
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="block sm:hidden font-body text-[13px] text-neutral-300 leading-snug mb-3"
+          >
+            Precision component repairs for luxury vehicles. <span className="text-white font-semibold">Save up to 80%</span> over main dealer replacements.
+          </motion.p>
+
+          {/* Desktop Supporting Paragraph */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
