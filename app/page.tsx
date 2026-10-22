@@ -4,7 +4,6 @@ import HeroTrustStrip from "@/components/hero/HeroTrustStrip";
 import TrustBar from "@/components/common/TrustBar";
 import Services from "@/components/services/Services";
 import AboutPreview from "@/components/about/AboutPreview";
-import Gallery from "@/components/gallery/Gallery";
 import BeforeAfter from "@/components/before-after/BeforeAfter";
 import Testimonials from "@/components/testimonials/Testimonials";
 import Faq from "@/components/faq/Faq";
@@ -22,7 +21,6 @@ export default function Home() {
         <TrustBar />
         <Services />
         <AboutPreview />
-        <Gallery />
         <BeforeAfter />
         <Testimonials />
         <Faq />

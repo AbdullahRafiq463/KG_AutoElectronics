@@ -14,7 +14,7 @@ const navItems = [
   { label: "About", href: "/about" },
   { label: "Why Us", href: "/why-us" },
   { label: "Process", href: "/process" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "FAQs", href: "#faqs" },
   { label: "Contact", href: "#contact" },
@@ -58,6 +58,8 @@ export default function Navbar() {
         setActiveSection("/why-us");
       } else if (pathname === "/process") {
         setActiveSection("/process");
+      } else if (pathname === "/gallery") {
+        setActiveSection("/gallery");
       } else {
         setActiveSection("");
       }
