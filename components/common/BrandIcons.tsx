@@ -82,3 +82,19 @@ export const YouTubeIcon = ({ className = "w-4 h-4" }: { className?: string }) =
     <path d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z" fill="#FFFFFF" />
   </svg>
 );
+
+// Official Instagram gradient brand logo
+export const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none">
+    <defs>
+      <linearGradient id="ig-gradient" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stopColor="#833AB4" />
+        <stop offset="50%" stopColor="#FD1D1D" />
+        <stop offset="100%" stopColor="#FCB045" />
+      </linearGradient>
+    </defs>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig-gradient)" strokeWidth="2" />
+    <circle cx="12" cy="12" r="4" stroke="url(#ig-gradient)" strokeWidth="2" />
+    <circle cx="17.5" cy="6.5" r="1.2" fill="url(#ig-gradient)" />
+  </svg>
+);

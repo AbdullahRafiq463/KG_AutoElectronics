@@ -3,7 +3,7 @@
 import { Mail, Phone, MapPin, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { GoogleIcon, EbayIcon, FacebookIcon, TikTokIcon, YouTubeIcon } from "@/components/common/BrandIcons";
+import { GoogleIcon, EbayIcon, FacebookIcon, TikTokIcon, YouTubeIcon, InstagramIcon } from "@/components/common/BrandIcons";
 
 export default function Footer() {
   return (
@@ -84,6 +84,17 @@ export default function Footer() {
             >
               <YouTubeIcon className="w-4 h-4" />
               <span className="font-semibold text-xs">YouTube</span>
+            </a>
+
+            <a
+              href="https://www.instagram.com/kg_auto_electronics?srtk=MWk1bzV4M2Jkb3Npag=="
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface border border-white/10 text-neutral-300 hover:text-white hover:border-primary-red/50 transition-all duration-300"
+              aria-label="Instagram Profile"
+            >
+              <InstagramIcon className="w-4 h-4" />
+              <span className="font-semibold text-xs">Instagram</span>
             </a>
 
             <a

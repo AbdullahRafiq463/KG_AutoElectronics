@@ -81,9 +81,11 @@ export default function RootLayout({
           "longitude": -2.1158,
         },
         "sameAs": [
+          "https://www.instagram.com/kg_auto_electronics",
           "https://www.tiktok.com/@autosrepairs",
           "https://www.ebay.co.uk/usr/kgautoelectronics",
-          "https://www.facebook.com/p/KG-Auto-Electronics-Ltd-100083765344316/"
+          "https://www.facebook.com/p/KG-Auto-Electronics-Ltd-100083765344316/",
+          "https://www.youtube.com/@KGAutoElectronics"
         ],
         "openingHoursSpecification": [
           {
